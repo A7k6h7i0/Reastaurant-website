@@ -20,7 +20,7 @@ const HeroSection = () => {
         className="absolute inset-0"
       >
         <img
-          src="/images/1.jpeg"
+          src="/images/1.png"
           alt="Pristine forest canopy of Baratang Island"
           className="w-full h-full object-cover object-center"
         />
@@ -46,17 +46,12 @@ const HeroSection = () => {
               </span>
             </motion.div>
 
-            <h1 className="font-serif font-bold text-5xl md:text-7xl lg:text-8xl text-white mb-6 leading-tight">
-              Experience Responsible Luxury
-            </h1>
+            <h3 className="font-serif  text-5xl md:text-7xl lg:text-8xl text-white mb-6 leading-tight">
+             Welcome To Dew Dale Resorts
+            </h3>
             <h2 className="font-serif font-light text-3xl md:text-4xl lg:text-5xl text-sand-light mb-8 leading-relaxed">
-              Amidst the Untouched Forests of Baratang Island
+              A blissful staying experience
             </h2>
-
-            <p className="text-white/90 text-lg md:text-xl max-w-3xl mx-auto mb-12 leading-relaxed font-sans">
-              Discover Andaman's hidden paradise where pristine nature meets eco-luxury. 
-              Explore limestone caves, mangrove creeks, and untouched beaches.
-            </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
               <motion.a

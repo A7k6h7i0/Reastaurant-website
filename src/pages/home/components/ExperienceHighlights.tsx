@@ -11,37 +11,42 @@ const ExperienceHighlights = () => {
   const experiences = [
     {
       title: 'Limestone Caves',
-      image: '/images/8.jpeg',
+      image: '/images/limestoneCaves.png',
       size: 'large',
     },
     {
-      title: 'Mangrove Creek Boat Ride',
-      image: '/images/Billede 016.jpg',
+      title: 'Mud Valcano',
+      image: '/images/mudvalcano.png',
       size: 'large',  
     },
     {
-      title: 'Parrot Island Sunset',
-      image: '/images/Billede 017.jpg',
+      title: 'Parrot Island',
+      image: '/images/parrotIsland.png',
       size: 'large',
     },
     {
-      title: 'Mud Volcano',
-      image: '/images/Billede 018.jpg',
+      title: 'North Bay Island',
+      image: '/images/NorthBayIsland.png',
       size: 'small',
     },
     {
       title: 'Baludera Beach',
-      image: '/images/DSC00069.JPG',
+      image: '/images/Baludera Beach.png',
       size: 'small',
     },
     {
-      title: 'Forest Hiking Trails',
-      image: '/images/Billede 389.jpg',
+      title: 'Jolly Buoy Island',
+      image: '/images/Jolly Buoy Island.png',
       size: 'small',
     },
     {
-      title: 'Nature Exploration',
-      image: '/images/Billede 028.jpg',
+      title: 'Ross Island',
+      image: '/images/Ross Island.png',
+      size: 'small',
+    },
+    {
+      title: 'Chidiya Tapu',
+      image: '/images/Chidiya Tapu.png',
       size: 'small',
     },
   ];

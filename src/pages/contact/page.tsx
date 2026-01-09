@@ -1,543 +1,463 @@
 import { useState } from 'react';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 import Navbar from '../../components/feature/Navbar';
 import Footer from '../../components/feature/Footer';
 
 export default function ContactPage() {
+  const [heroRef, heroInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [formRef, formInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
-    subject: '',
-    message: '',
-    arrivalDate: '',
-    guests: ''
+    checkIn: '',
+    checkOut: '',
+    guests: '2',
+    message: ''
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const whatsappMessage = `Hello, I would like to inquire about booking:%0A%0AName: ${formData.name}%0AEmail: ${formData.email}%0APhone: ${formData.phone}%0ACheck-in: ${formData.checkIn}%0ACheck-out: ${formData.checkOut}%0AGuests: ${formData.guests}%0AMessage: ${formData.message}`;
+    window.open(`https://wa.me/919434280628?text=${whatsappMessage}`, '_blank');
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    // Validate textarea length
-    if (formData.message.length > 500) {
-      alert('Message must be 500 characters or less');
-      return;
-    }
-
-    setIsSubmitting(true);
-    setSubmitStatus('idle');
-
-    try {
-      const formBody = new URLSearchParams();
-      Object.entries(formData).forEach(([key, value]) => {
-        formBody.append(key, value);
-      });
-
-      const response = await fetch('https://readdy.ai/api/form/d5c8qf9dn6dhfpiabq30', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: formBody.toString()
-      });
-
-      if (response.ok) {
-        setSubmitStatus('success');
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          subject: '',
-          message: '',
-          arrivalDate: '',
-          guests: ''
-        });
-      } else {
-        setSubmitStatus('error');
-      }
-    } catch (error) {
-      setSubmitStatus('error');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+  const whatsappUrl = "https://wa.me/919434280628?text=Hello%2C%20I%20would%20like%20to%20inquire%20about%20Dew%20Dale%20Resorts";
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-cream">
       <Navbar />
       
       {/* Hero Section */}
-      <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src = "/images/Billede 388.jpg"
-            alt="Contact Dew Dale Resorts"
-            className="w-full h-full object-cover object-top"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/40"></div>
+      <motion.section 
+        ref={heroRef}
+        initial={{ opacity: 0 }}
+        animate={heroInView ? { opacity: 1 } : {}}
+        transition={{ duration: 1 }}
+        className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden"
+      >
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/images/Billede 225.jpg')" }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60"></div>
         </div>
         
-        <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 font-serif">
-            Get in Touch
+        <motion.div 
+          initial={{ y: 30, opacity: 0 }}
+          animate={heroInView ? { y: 0, opacity: 1 } : {}}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="relative z-10 text-center text-white px-4"
+        >
+          <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
+            Contact Us
           </h1>
-          <p className="text-xl md:text-2xl text-white/95 leading-relaxed">
+          <p className="text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
             We're here to help plan your perfect escape to Baratang Island
           </p>
+        </motion.div>
+      </motion.section>
+
+      {/* Quick Contact Cards */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {/* Phone */}
+            <a 
+              href="tel:+919434280628"
+              className="bg-cream hover:bg-sage/20 p-8 rounded-2xl text-center transition-all duration-300 hover:shadow-lg group"
+            >
+              <div className="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-gold/20 transition-colors">
+                <i className="ri-phone-line text-3xl text-gold"></i>
+              </div>
+              <h3 className="font-semibold text-forest-dark mb-2">Call Us</h3>
+              <p className="text-sm text-charcoal/60 mb-3">Available 24/7 for your convenience</p>
+              <p className="text-gold font-semibold">+91 9434280628</p>
+            </a>
+
+            {/* WhatsApp */}
+            <a 
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-cream hover:bg-sage/20 p-8 rounded-2xl text-center transition-all duration-300 hover:shadow-lg group"
+            >
+              <div className="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-gold/20 transition-colors">
+                <i className="ri-whatsapp-line text-3xl text-gold"></i>
+              </div>
+              <h3 className="font-semibold text-forest-dark mb-2">WhatsApp</h3>
+              <p className="text-sm text-charcoal/60 mb-3">Quick responses to your queries</p>
+              <p className="text-gold font-semibold">Chat with Us</p>
+            </a>
+
+            {/* Email */}
+            <a 
+              href="mailto:dewdale.resorts@gmail.com"
+              className="bg-cream hover:bg-sage/20 p-8 rounded-2xl text-center transition-all duration-300 hover:shadow-lg group"
+            >
+              <div className="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-gold/20 transition-colors">
+                <i className="ri-mail-line text-3xl text-gold"></i>
+              </div>
+              <h3 className="font-semibold text-forest-dark mb-2">Email</h3>
+              <p className="text-sm text-charcoal/60 mb-3">Send us your detailed inquiries</p>
+              <p className="text-gold font-semibold text-sm">dewdale.resorts@gmail.com</p>
+            </a>
+          </div>
         </div>
       </section>
 
-      {/* Contact Information Cards */}
-      <section className="py-20 bg-stone-50">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
-            {/* Phone */}
-            <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 text-center">
-              <div className="w-16 h-16 flex items-center justify-center bg-emerald-100 rounded-full mx-auto mb-6">
-                <i className="ri-phone-line text-3xl text-emerald-600"></i>
-              </div>
-              <h3 className="text-xl font-bold text-stone-800 mb-3">Call Us</h3>
-              <p className="text-stone-600 mb-4">Available 24/7 for your convenience</p>
-              <a 
-                href="tel:+919933288870"
-                className="text-emerald-600 hover:text-emerald-700 font-semibold text-lg cursor-pointer"
-              >
-                +91 99332 88870
-              </a>
-            </div>
-
-            {/* WhatsApp */}
-            <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 text-center">
-              <div className="w-16 h-16 flex items-center justify-center bg-emerald-100 rounded-full mx-auto mb-6">
-                <i className="ri-whatsapp-line text-3xl text-emerald-600"></i>
-              </div>
-              <h3 className="text-xl font-bold text-stone-800 mb-3">WhatsApp</h3>
-              <p className="text-stone-600 mb-4">Quick responses to your queries</p>
-              <a 
-                href="https://wa.me/919933288870"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-emerald-600 hover:text-emerald-700 font-semibold text-lg cursor-pointer"
-              >
-                Chat with Us
-              </a>
-            </div>
-
-            {/* Email */}
-            <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 text-center">
-              <div className="w-16 h-16 flex items-center justify-center bg-emerald-100 rounded-full mx-auto mb-6">
-                <i className="ri-mail-line text-3xl text-emerald-600"></i>
-              </div>
-              <h3 className="text-xl font-bold text-stone-800 mb-3">Email</h3>
-              <p className="text-stone-600 mb-4">Send us your detailed inquiries</p>
-              <a 
-                href="mailto:info@dewdaleresorts.com"
-                className="text-emerald-600 hover:text-emerald-700 font-semibold text-lg cursor-pointer"
-              >
-                info@dewdaleresorts.com
-              </a>
-            </div>
-          </div>
-
-          {/* Location & Form Section */}
-          <div className="grid lg:grid-cols-2 gap-12">
-            {/* Location Information */}
-            <div>
-              <h2 className="text-3xl font-bold text-stone-800 mb-6 font-serif">
-                Visit Our Resort
-              </h2>
-              
-              <div className="bg-white p-8 rounded-2xl shadow-md mb-8">
-                <div className="flex items-start gap-4 mb-6">
-                  <div className="w-12 h-12 flex items-center justify-center bg-emerald-100 rounded-full flex-shrink-0">
-                    <i className="ri-map-pin-line text-2xl text-emerald-600"></i>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-stone-800 mb-2">Address</h3>
-                    <p className="text-stone-600 leading-relaxed">
-                      Sundergarh Village, Baratang Island<br />
-                      Middle Andaman, Andaman and Nicobar Islands<br />
-                      India - 744202
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4 mb-6">
-                  <div className="w-12 h-12 flex items-center justify-center bg-emerald-100 rounded-full flex-shrink-0">
-                    <i className="ri-map-2-line text-2xl text-emerald-600"></i>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-stone-800 mb-2">Distance</h3>
-                    <p className="text-stone-600 leading-relaxed">
-                      65 miles from Port Blair<br />
-                      Nestled in evergreen forest near exotic beaches
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 flex items-center justify-center bg-emerald-100 rounded-full flex-shrink-0">
-                    <i className="ri-time-line text-2xl text-emerald-600"></i>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-stone-800 mb-2">Reception Hours</h3>
-                    <p className="text-stone-600 leading-relaxed">
-                      24/7 Front Desk Service<br />
-                      Check-in: 2:00 PM | Check-out: 11:00 AM
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Map */}
-              <div className="rounded-2xl overflow-hidden shadow-md h-80">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125000!2d92.7!3d12.1!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDA2JzAwLjAiTiA5MsKwNDInMDAuMCJF!5e0!3m2!1sen!2sin!4v1234567890"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="Dew Dale Resorts Location"
-                ></iframe>
-              </div>
-            </div>
-
+      {/* Main Content - Form and Info */}
+      <motion.section 
+        ref={formRef}
+        initial={{ opacity: 0, y: 30 }}
+        animate={formInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.8 }}
+        className="py-20 bg-cream"
+      >
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
             {/* Contact Form */}
-            <div>
-              <h2 className="text-3xl font-bold text-stone-800 mb-6 font-serif">
-                Send Us a Message
+            <div className="bg-white rounded-3xl p-8 md:p-10 shadow-xl">
+              <h2 className="font-serif text-3xl font-bold text-forest-dark mb-6">
+                Send us a Message
               </h2>
-              
-              <form 
-                id="contact-form"
-                data-readdy-form
-                onSubmit={handleSubmit}
-                className="bg-white p-8 rounded-2xl shadow-md"
-              >
-                <div className="grid md:grid-cols-2 gap-6 mb-6">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-semibold text-stone-700 mb-2">
-                      Full Name *
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 rounded-lg border border-stone-300 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition-all text-sm"
-                      placeholder="Your name"
-                    />
-                  </div>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div>
+                  <label className="block text-sm font-medium text-charcoal mb-2">
+                    Full Name *
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    required
+                    value={formData.name}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 rounded-lg border border-sage/30 focus:border-gold focus:ring-2 focus:ring-gold/20 outline-none transition-all"
+                    placeholder="Enter your name"
+                  />
+                </div>
 
+                <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="email" className="block text-sm font-semibold text-stone-700 mb-2">
-                      Email Address *
+                    <label className="block text-sm font-medium text-charcoal mb-2">
+                      Email *
                     </label>
                     <input
                       type="email"
-                      id="email"
                       name="email"
+                      required
                       value={formData.email}
                       onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 rounded-lg border border-stone-300 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition-all text-sm"
+                      className="w-full px-4 py-3 rounded-lg border border-sage/30 focus:border-gold focus:ring-2 focus:ring-gold/20 outline-none transition-all"
                       placeholder="your@email.com"
                     />
                   </div>
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-6 mb-6">
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-semibold text-stone-700 mb-2">
-                      Phone Number *
+                    <label className="block text-sm font-medium text-charcoal mb-2">
+                      Phone *
                     </label>
                     <input
                       type="tel"
-                      id="phone"
                       name="phone"
+                      required
                       value={formData.phone}
                       onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 rounded-lg border border-stone-300 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition-all text-sm"
+                      className="w-full px-4 py-3 rounded-lg border border-sage/30 focus:border-gold focus:ring-2 focus:ring-gold/20 outline-none transition-all"
                       placeholder="+91 XXXXX XXXXX"
                     />
                   </div>
-
-                  <div>
-                    <label htmlFor="subject" className="block text-sm font-semibold text-stone-700 mb-2">
-                      Subject *
-                    </label>
-                    <select
-                      id="subject"
-                      name="subject"
-                      value={formData.subject}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 rounded-lg border border-stone-300 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition-all text-sm cursor-pointer"
-                    >
-                      <option value="">Select a subject</option>
-                      <option value="Room Booking">Room Booking</option>
-                      <option value="Package Inquiry">Package Inquiry</option>
-                      <option value="Experience Booking">Experience Booking</option>
-                      <option value="General Inquiry">General Inquiry</option>
-                      <option value="Feedback">Feedback</option>
-                      <option value="Other">Other</option>
-                    </select>
-                  </div>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-6 mb-6">
+                <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="arrivalDate" className="block text-sm font-semibold text-stone-700 mb-2">
-                      Expected Arrival Date
+                    <label className="block text-sm font-medium text-charcoal mb-2">
+                      Check-in Date
                     </label>
                     <input
                       type="date"
-                      id="arrivalDate"
-                      name="arrivalDate"
-                      value={formData.arrivalDate}
+                      name="checkIn"
+                      value={formData.checkIn}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg border border-stone-300 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition-all text-sm cursor-pointer"
+                      className="w-full px-4 py-3 rounded-lg border border-sage/30 focus:border-gold focus:ring-2 focus:ring-gold/20 outline-none transition-all"
                     />
                   </div>
-
                   <div>
-                    <label htmlFor="guests" className="block text-sm font-semibold text-stone-700 mb-2">
-                      Number of Guests
+                    <label className="block text-sm font-medium text-charcoal mb-2">
+                      Check-out Date
                     </label>
-                    <select
-                      id="guests"
-                      name="guests"
-                      value={formData.guests}
+                    <input
+                      type="date"
+                      name="checkOut"
+                      value={formData.checkOut}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg border border-stone-300 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition-all text-sm cursor-pointer"
-                    >
-                      <option value="">Select guests</option>
-                      <option value="1">1 Guest</option>
-                      <option value="2">2 Guests</option>
-                      <option value="3">3 Guests</option>
-                      <option value="4">4 Guests</option>
-                      <option value="5+">5+ Guests</option>
-                    </select>
+                      className="w-full px-4 py-3 rounded-lg border border-sage/30 focus:border-gold focus:ring-2 focus:ring-gold/20 outline-none transition-all"
+                    />
                   </div>
                 </div>
 
-                <div className="mb-6">
-                  <label htmlFor="message" className="block text-sm font-semibold text-stone-700 mb-2">
-                    Your Message *
+                <div>
+                  <label className="block text-sm font-medium text-charcoal mb-2">
+                    Number of Guests
+                  </label>
+                  <select
+                    name="guests"
+                    value={formData.guests}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 rounded-lg border border-sage/30 focus:border-gold focus:ring-2 focus:ring-gold/20 outline-none transition-all"
+                  >
+                    {[1,2,3,4,5,6,7,8].map(num => (
+                      <option key={num} value={num}>{num} {num === 1 ? 'Guest' : 'Guests'}</option>
+                    ))}
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-charcoal mb-2">
+                    Message
                   </label>
                   <textarea
-                    id="message"
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    required
-                    maxLength={500}
-                    rows={5}
-                    className="w-full px-4 py-3 rounded-lg border border-stone-300 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition-all resize-none text-sm"
+                    rows={4}
+                    className="w-full px-4 py-3 rounded-lg border border-sage/30 focus:border-gold focus:ring-2 focus:ring-gold/20 outline-none transition-all resize-none"
                     placeholder="Tell us about your requirements..."
-                  ></textarea>
-                  <p className="text-xs text-stone-500 mt-2">
-                    {formData.message.length}/500 characters
-                  </p>
+                  />
                 </div>
 
                 <button
                   type="submit"
-                  disabled={isSubmitting}
-                  className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center gap-2 whitespace-nowrap cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full bg-forest-dark hover:bg-forest-darker text-white py-4 rounded-lg font-semibold transition-all duration-300 hover:shadow-lg flex items-center justify-center gap-2 group"
                 >
-                  {isSubmitting ? (
-                    <>
-                      <i className="ri-loader-4-line text-xl animate-spin"></i>
-                      Sending...
-                    </>
-                  ) : (
-                    <>
-                      <i className="ri-send-plane-line text-xl"></i>
-                      Send Message
-                    </>
-                  )}
+                  Send Inquiry
+                  <i className="ri-send-plane-fill group-hover:translate-x-1 transition-transform"></i>
                 </button>
-
-                {submitStatus === 'success' && (
-                  <div className="mt-4 p-4 bg-emerald-50 border border-emerald-200 rounded-lg flex items-center gap-3">
-                    <i className="ri-checkbox-circle-line text-2xl text-emerald-600"></i>
-                    <p className="text-emerald-700 font-medium">
-                      Thank you! We'll get back to you soon.
-                    </p>
-                  </div>
-                )}
-
-                {submitStatus === 'error' && (
-                  <div className="mt-4 p-4 bg-rose-50 border border-rose-200 rounded-lg flex items-center gap-3">
-                    <i className="ri-error-warning-line text-2xl text-rose-600"></i>
-                    <p className="text-rose-700 font-medium">
-                      Something went wrong. Please try again.
-                    </p>
-                  </div>
-                )}
               </form>
+            </div>
+
+            {/* Resort Info */}
+            <div className="space-y-8">
+              {/* Address */}
+              <div className="bg-white rounded-3xl p-8 shadow-lg">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-gold/10 rounded-full flex items-center justify-center flex-shrink-0">
+                    <i className="ri-map-pin-line text-2xl text-gold"></i>
+                  </div>
+                  <div>
+                    <h3 className="font-serif text-xl font-bold text-forest-dark mb-3">
+                      Our Location
+                    </h3>
+                    <p className="text-charcoal/80 leading-relaxed">
+                      Sundergarh Village, Baratang Island<br />
+                      Middle Andaman, Andaman and Nicobar Islands<br />
+                      India - 744202
+                    </p>
+                    <div className="mt-4 flex items-center gap-2 text-sm text-charcoal/60">
+                      <i className="ri-road-map-line text-gold"></i>
+                      <span>105 km from Port Blair</span>
+                    </div>
+                    <div className="mt-2 flex items-center gap-2 text-sm text-charcoal/60">
+                      <i className="ri-plant-line text-gold"></i>
+                      <span>Nestled in evergreen forest near exotic beaches</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Operating Hours */}
+              <div className="bg-white rounded-3xl p-8 shadow-lg">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-gold/10 rounded-full flex items-center justify-center flex-shrink-0">
+                    <i className="ri-time-line text-2xl text-gold"></i>
+                  </div>
+                  <div>
+                    <h3 className="font-serif text-xl font-bold text-forest-dark mb-3">
+                      Reception Hours
+                    </h3>
+                    <p className="text-charcoal/80 mb-2">24/7 Front Desk Service</p>
+                    <div className="space-y-1 text-sm text-charcoal/60">
+                      <p>Check-in: 2:00 PM | Check-out: 11:00 AM</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Map Placeholder */}
+              <div className="bg-sage/10 rounded-3xl p-8 h-64 flex items-center justify-center">
+                <div className="text-center">
+                  <i className="ri-map-2-line text-5xl text-sage/40 mb-4"></i>
+                  <p className="text-charcoal/60">Map integration coming soon</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      {/* How to Reach Section */}
+      {/* How to Reach - BY SEA AND BY ROAD ONLY */}
       <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-stone-800 mb-4 font-serif">
-              How to Reach Us
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="font-serif text-4xl md:text-5xl font-bold text-forest-dark mb-4">
+              How to Reach
             </h2>
-            <p className="text-stone-600 text-lg max-w-2xl mx-auto">
+            <p className="text-lg text-charcoal/70 max-w-2xl mx-auto">
               Your journey to paradise starts here
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-stone-50 p-8 rounded-2xl">
-              <div className="w-14 h-14 flex items-center justify-center bg-emerald-100 rounded-full mb-6">
-                <i className="ri-plane-line text-2xl text-emerald-600"></i>
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {/* By Sea */}
+            <div className="bg-cream rounded-3xl p-8 hover:shadow-xl transition-all duration-300">
+              <div className="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mb-6">
+                <i className="ri-ship-line text-3xl text-gold"></i>
               </div>
-              <h3 className="text-xl font-bold text-stone-800 mb-3">By Air</h3>
-              <p className="text-stone-600 leading-relaxed mb-4">
-                Fly to Veer Savarkar International Airport, Port Blair. From there, it's a scenic 65-mile journey to our resort.
-              </p>
-              <p className="text-sm text-emerald-600 font-semibold">
-                Airport Transfer Available
-              </p>
-            </div>
-
-            <div className="bg-stone-50 p-8 rounded-2xl">
-              <div className="w-14 h-14 flex items-center justify-center bg-emerald-100 rounded-full mb-6">
-                <i className="ri-ship-line text-2xl text-emerald-600"></i>
-              </div>
-              <h3 className="text-xl font-bold text-stone-800 mb-3">By Sea</h3>
-              <p className="text-stone-600 leading-relaxed mb-4">
+              <h3 className="font-serif text-2xl font-bold text-forest-dark mb-4">By Sea</h3>
+              <p className="text-charcoal/80 leading-relaxed mb-4">
                 Regular ferry services connect Port Blair to Baratang Island. Enjoy the beautiful coastal views during your journey.
               </p>
-              <p className="text-sm text-emerald-600 font-semibold">
-                Ferry Schedule Available
-              </p>
+              <div className="inline-flex items-center gap-2 text-gold font-semibold">
+                <i className="ri-calendar-line"></i>
+                <span>Ferry Schedule Available</span>
+              </div>
             </div>
 
-            <div className="bg-stone-50 p-8 rounded-2xl">
-              <div className="w-14 h-14 flex items-center justify-center bg-emerald-100 rounded-full mb-6">
-                <i className="ri-car-line text-2xl text-emerald-600"></i>
+            {/* By Road */}
+            <div className="bg-cream rounded-3xl p-8 hover:shadow-xl transition-all duration-300">
+              <div className="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mb-6">
+                <i className="ri-car-line text-3xl text-gold"></i>
               </div>
-              <h3 className="text-xl font-bold text-stone-800 mb-3">By Road</h3>
-              <p className="text-stone-600 leading-relaxed mb-4">
+              <h3 className="font-serif text-2xl font-bold text-forest-dark mb-4">By Road</h3>
+              <p className="text-charcoal/80 leading-relaxed mb-4">
                 Drive through the scenic Andaman Trunk Road. Our resort is located in Sundergarh village, easily accessible by car.
               </p>
-              <p className="text-sm text-emerald-600 font-semibold">
-                Pickup Service Available
-              </p>
+              <div className="inline-flex items-center gap-2 text-gold font-semibold">
+                <i className="ri-customer-service-line"></i>
+                <span>Pickup Service Available</span>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-stone-50">
-        <div className="max-w-4xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-stone-800 mb-4 font-serif">
-              Frequently Asked Questions
-            </h2>
-            <p className="text-stone-600 text-lg">
-              Quick answers to common questions
-            </p>
-          </div>
-
-          <div className="space-y-4">
-            <details className="bg-white p-6 rounded-xl shadow-md group cursor-pointer">
-              <summary className="font-semibold text-stone-800 text-lg flex items-center justify-between cursor-pointer">
-                What are the check-in and check-out times?
-                <i className="ri-arrow-down-s-line text-2xl text-emerald-600 group-open:rotate-180 transition-transform"></i>
+      <section className="py-20 bg-sage/5">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <h2 className="font-serif text-4xl font-bold text-center text-forest-dark mb-12">
+            Quick answers to common questions
+          </h2>
+          
+          <div className="space-y-6">
+            <details className="bg-white rounded-2xl p-6 shadow-md group">
+              <summary className="font-semibold text-forest-dark cursor-pointer flex items-center justify-between">
+                
+               Where is Dew Dale Resorts located?
+                <i className="ri-arrow-down-s-line text-2xl group-open:rotate-180 transition-transform"></i>
               </summary>
-              <p className="text-stone-600 mt-4 leading-relaxed">
-                Check-in time is 2:00 PM and check-out time is 11:00 AM. Early check-in and late check-out are subject to availability and may incur additional charges.
+              <p className="mt-4 text-charcoal/80 leading-relaxed">
+                Dew Dale Resorts is located in Baratang Island, Andaman and Nicobar Islands, at about 100 Kms from Port Blair, by the National Highway running through Baratang towards Diglipur. Baratang Island can easily be reached by road (National Highway - 4) from Port Blair, with a 20 minutes vehicle ferry crossing on the last leg of the journey. One can then reach the Resort in 5 minutes by Car from vehicle ferry docking point.
               </p>
             </details>
 
-            <details className="bg-white p-6 rounded-xl shadow-md group cursor-pointer">
-              <summary className="font-semibold text-stone-800 text-lg flex items-center justify-between cursor-pointer">
-                Do you provide airport/ferry transfer services?
-                <i className="ri-arrow-down-s-line text-2xl text-emerald-600 group-open:rotate-180 transition-transform"></i>
+            <details className="bg-white rounded-2xl p-6 shadow-md group">
+              <summary className="font-semibold text-forest-dark cursor-pointer flex items-center justify-between">
+                What are the famous tourist attractions in and around Baratang Island?
+                <i className="ri-arrow-down-s-line text-2xl group-open:rotate-180 transition-transform"></i>
               </summary>
-              <p className="text-stone-600 mt-4 leading-relaxed">
-                Yes, we offer pickup and drop services from Port Blair airport and ferry terminal. Please contact us in advance to arrange your transfer.
+              <p className="mt-4 text-charcoal/80 leading-relaxed">
+                Baratang Island is famous as a tourist destination. Sightseeing in Baratang is unique and consists of natural wonders. Most sightseeing involves boat trips through mangroves. The popular sightseeing are the limestone caves, mud volcanoes, isolated and uncrowded beaches like Baludera, and most important of all the mesmerizing sunset boat trip to Parrot Island. The trip to the exotic and pristine Merk Bay beach can be covered from Baratang Island.
               </p>
             </details>
 
-            <details className="bg-white p-6 rounded-xl shadow-md group cursor-pointer">
-              <summary className="font-semibold text-stone-800 text-lg flex items-center justify-between cursor-pointer">
-                What activities can be arranged through the resort?
-                <i className="ri-arrow-down-s-line text-2xl text-emerald-600 group-open:rotate-180 transition-transform"></i>
+            <details className="bg-white rounded-2xl p-6 shadow-md group">
+              <summary className="font-semibold text-forest-dark cursor-pointer flex items-center justify-between">
+                Is it necessary to start as early as 2.30-3 AM from Port Blair to cover Baratang sightseeing?
+                <i className="ri-arrow-down-s-line text-2xl group-open:rotate-180 transition-transform"></i>
               </summary>
-              <p className="text-stone-600 mt-4 leading-relaxed">
-                Our travel desk can arrange canoeing, kayaking, wildlife safaris, bird-watching, hiking, biking, fishing, and village tours. All activities are guided by experienced professionals.
+              <p className="mt-4 text-charcoal/80 leading-relaxed">
+               No. It is not necessary. You can opt for a relaxed Baratang tour with night stay. Baratang trip is a 3 hour journey from Port Blair by road and should be planned in accordance with the convoy timings which start from the Jirkatang Police check-post. The convoy timings from the check-post are 6.00 AM, 9.00 AM, 12.00 Noon, and 2.30 PM. To reach the Jirkatang Police check-post, it takes one-and-half hours from Port Blair. And from the Jirkatang Police check-post to your next destination, that is, Middle Strait Police check-post, it takes another one-and-half hours. Baratang Island is across the Middle Strait Creek which can be crossed in 20 minutes on a vehicle ferry. So one can plan a trip to Baratang Island based on the above information.
               </p>
             </details>
 
-            <details className="bg-white p-6 rounded-xl shadow-md group cursor-pointer">
-              <summary className="font-semibold text-stone-800 text-lg flex items-center justify-between cursor-pointer">
-                Is food included in the room tariff?
-                <i className="ri-arrow-down-s-line text-2xl text-emerald-600 group-open:rotate-180 transition-transform"></i>
+            <details className="bg-white rounded-2xl p-6 shadow-md group">
+              <summary className="font-semibold text-forest-dark cursor-pointer flex items-center justify-between">
+                What are the convoy timings from Jirkatang Police check-post?
+                <i className="ri-arrow-down-s-line text-2xl group-open:rotate-180 transition-transform"></i>
               </summary>
-              <p className="text-stone-600 mt-4 leading-relaxed">
-                Our packages typically include meals. Please check your specific package details or contact us for information about meal inclusions and our multi-cuisine restaurant options.
-              </p>
+              <p className="mt-4 text-charcoal/80 leading-relaxed">
+             Convoy timings are 6.00 AM, 9.00 AM, 12.00 Noon, and 2.30 PM.              </p>
             </details>
 
-            <details className="bg-white p-6 rounded-xl shadow-md group cursor-pointer">
-              <summary className="font-semibold text-stone-800 text-lg flex items-center justify-between cursor-pointer">
-                What is your cancellation policy?
-                <i className="ri-arrow-down-s-line text-2xl text-emerald-600 group-open:rotate-180 transition-transform"></i>
+            <details className="bg-white rounded-2xl p-6 shadow-md group">
+              <summary className="font-semibold text-forest-dark cursor-pointer flex items-center justify-between">
+                What are the convoy timings for the return trip from Middle Strait Police check-post?
+                <i className="ri-arrow-down-s-line text-2xl group-open:rotate-180 transition-transform"></i>
               </summary>
-              <p className="text-stone-600 mt-4 leading-relaxed">
-                Cancellation policies vary by season and package. Please contact us directly for detailed information about cancellation terms and refund policies.
-              </p>
+              <p className="mt-4 text-charcoal/80 leading-relaxed">
+             Convoy timings for return trip are 6.30 AM, 9.30 AM, 12.30 PM and 3.00 PM.              </p>
+            </details>
+
+            <details className="bg-white rounded-2xl p-6 shadow-md group">
+              <summary className="font-semibold text-forest-dark cursor-pointer flex items-center justify-between">
+              What are the main tourist attractions in and around Baratang Island and their timings?
+              <i className="ri-arrow-down-s-line text-2xl group-open:rotate-180 transition-transform"></i>
+              </summary>
+              <p className="mt-4 text-charcoal/80 leading-relaxed">
+             Lime Stone Caves – This is a boat trip from Baratang Jetty. Normal tour duration is 2 to 3 hours and this tour is available for booking from 7.00 AM to 11.30 AM.
+              Mud Volcano Site – This is a road trip and takes 15 minutes from the Resort. Normal tour duration is half an hour to one hour. This tour is available anytime during the day.
+              Parrot Island - This is a boat trip from Baratang Jetty. Normal tour duration is 2 hours. This tour is usually available at 4.30 PM, when one can witness thousands of parrots returning back to their natural habitat just before sunset.
+              Baludera Beach – This beach can be reached by a road trip and takes 15 minutes from the Resort. Normal tour duration is half an hour to one hour. But if you are a beach lover, you can spend more time on this beach. This tour is available anytime during the day.
+              Jungle Trekking – This tour can be taken up as a day tour. We have identified many trekking paths for tourists interested in this type of adventure.
+              Creek Safari – Creek Safari is arranged for visitors who are interested in boat rides through the Creek.
+              Merk Bay Beach, Lalaji Bay Beach, Amkunj Beach and Curtbert Bay Beach – Tours to all these isolated beaches can be arranged from Baratang as separate individual day trips. These are arranged as picnic tours by the Resort with packed food for the tour. Merk bay and Lalaji bay beaches are covered with boat trips, whereas Amkunj Beach and Curtbert Bay Beaches are reachable by road.</p>
+            </details>
+
+            <details className="bg-white rounded-2xl p-6 shadow-md group">
+              <summary className="font-semibold text-forest-dark cursor-pointer flex items-center justify-between">
+             One night or more in Baratang Island?
+               <i className="ri-arrow-down-s-line text-2xl group-open:rotate-180 transition-transform"></i>
+              </summary>
+              <p className="mt-4 text-charcoal/80 leading-relaxed">
+             Based on individual interest by including the above tour options one can decide how many nights need to be spent in Baratang Island. To explore regular sightseeing in Baratang Island leisurely, 2 nights stay in Baratang would be most ideal.  </p>
             </details>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-emerald-600 to-emerald-700">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-serif">
-            Ready to Book Your Stay?
+      {/* Final CTA */}
+      <section className="py-20 bg-forest-dark text-white">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="font-serif text-4xl font-bold mb-6">
+            Ready to Experience Paradise?
           </h2>
-          <p className="text-xl text-white/95 mb-8 leading-relaxed">
+          <p className="text-lg mb-8 text-white/80 max-w-2xl mx-auto">
             Contact us now and let us help you plan your perfect island getaway
           </p>
-          <div className="flex flex-wrap gap-4 justify-center">
+          <div className="flex flex-wrap justify-center gap-4">
             <a
-              href="https://wa.me/919933288870"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-white hover:bg-stone-100 text-emerald-600 px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center gap-2 whitespace-nowrap cursor-pointer shadow-lg"
+              href="tel:+919434280628"
+              className="bg-gold hover:bg-gold/90 text-forest-dark px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:shadow-lg flex items-center gap-2"
             >
-              <i className="ri-whatsapp-line text-xl"></i>
-              WhatsApp Now
+              <i className="ri-phone-line"></i>
+              Call Now
             </a>
             <a
-              href="tel:+919933288870"
-              className="bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 border border-white/30 flex items-center gap-2 whitespace-nowrap cursor-pointer"
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white hover:bg-white/90 text-forest-dark px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:shadow-lg flex items-center gap-2"
             >
-              <i className="ri-phone-line text-xl"></i>
-              Call Us
+              <i className="ri-whatsapp-line"></i>
+              WhatsApp Us
             </a>
           </div>
         </div>

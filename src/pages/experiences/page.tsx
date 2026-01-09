@@ -5,96 +5,94 @@ import Footer from '../../components/feature/Footer';
 export default function ExperiencesPage() {
   const [selectedCategory, setSelectedCategory] = useState('all');
 
-  const whatsappBookingUrl = "https://wa.me/919434280628?text=Hello%2C%20I%20would%20like%20to%20book%20a%20stay%20at%20Dew%20Dale%20Resorts.%20Please%20share%20availability%20and%20booking%20details.";
-
   const experiences = [
     {
       id: 1,
-      title: 'Canoeing & Kayaking',
-      category: 'water',
-      description: 'Paddle through pristine mangrove creeks and explore hidden waterways. Perfect for both beginners and experienced paddlers.',
-      duration: '2-3 hours',
-      difficulty: 'Easy to Moderate',
-      image: '/images/Billede 225.jpg',
-      bestTime: 'Early Morning',
-      groupSize: '2-8 people'
-    },
-    {
-      id: 2,
-      title: 'Wildlife Safaris',
+      title: 'Limestone Caves',
       category: 'nature',
-      description: 'Venture into the evergreen forests to spot exotic wildlife including wild boars, deer, and rare bird species in their natural habitat.',
+      description: 'The lime stone caves, full of splendid stalagmites, stalactites and pillar rocks, can be accessed by a 40-minute boat ride through the creeks from the Nilambur Jetty.',
       duration: '3-4 hours',
       difficulty: 'Moderate',
-      image : '/images/Billede 319.jpg',
-      bestTime: 'Dawn or Dusk',
+      image: '/images/limestoneCaves.png',
+      bestTime: 'Morning',
       groupSize: '4-10 people'
     },
     {
-      id: 3,
-      title: 'Bird Watching',
+      id: 2,
+      title: 'Mud Volcano',
       category: 'nature',
-      description: 'Discover over 100 species of exotic birds including the Andaman Woodpecker, Nicobar Pigeon, and many endemic species.',
+      description: 'A mud volcano is created by natural gases emitted by decaying organic matter underground. As the mud is pushed upwards by the gas, it deposits and hardens above ground.',
       duration: '2-3 hours',
       difficulty: 'Easy',
-      image : '/images/Billede 036.jpg',
-      bestTime: 'Early Morning',
-      groupSize: '2-6 people'
-    },
-    {
-      id: 4,
-      title: 'Forest Hiking',
-      category: 'adventure',
-      description: 'Trek through ancient evergreen forests on well-marked trails. Experience the raw beauty of untouched nature and breathtaking viewpoints.',
-      duration: '3-5 hours',
-      difficulty: 'Moderate to Challenging',
-      image : '/images/Billede 245.jpg',
-      bestTime: 'Morning',
+      image : '/images/mudvalcano.png',
+      bestTime: 'Morning or Afternoon',
       groupSize: '4-12 people'
     },
     {
+      id: 3,
+      title: 'Parrot Island',
+      category: 'nature',
+      description: 'Parrot Island is a tiny island situated near Baratang. It is home to thousands of parrots. During sunset, thousands of parrots come in groups to settle in that island.',
+      duration: '2-3 hours',
+      difficulty: 'Easy',
+      image : '/images/parrotIsland.png',
+      bestTime: 'Sunset',
+      groupSize: '4-15 people'
+    },
+    {
+      id: 4,
+      title: 'Baludera Beach',
+      category: 'water',
+      description: 'Baludera Beach is an unpolluted shallow and isolated beach in Baratang Island. During low tide one can wade through for almost a kilometer.',
+      duration: '3-4 hours',
+      difficulty: 'Easy',
+      image : '/images/Baludera Beach.png',
+      bestTime: 'Morning',
+      groupSize: '2-12 people'
+    },
+    {
       id: 5,
-      title: 'Biking Tours',
-      category: 'adventure',
-      description: 'Cycle through scenic village roads and forest trails. Experience local life and stunning landscapes at your own pace.',
-      duration: '2-4 hours',
+      title: 'North Bay Island',
+      category: 'water',
+      description: 'Merk Bay beach is in North Passage Island and offers an excellent sandy beach with unpolluted environment and evergreen forests.',
+      duration: '4-5 hours',
       difficulty: 'Easy to Moderate',
-      image : '/images/Billede 347.jpg',
-      bestTime: 'Morning or Evening',
-      groupSize: '2-8 people'
+      image : '/images/NorthBayIsland.png',
+      bestTime: 'Morning or Afternoon',
+      groupSize: '4-15 people'
     },
     {
       id: 6,
-      title: 'Hand-line Fishing',
+      title: 'Jolly Buoy Island',
       category: 'water',
-      description: 'Try traditional hand-line fishing techniques in pristine waters. A peaceful and rewarding experience for all ages.',
+      description: 'Experience the rich mangrove ecosystem through a boat ride. An attraction to bird lovers and nature enthusiasts, as biodiversity rich areas which harbor diverse flora and fauna.',
       duration: '2-3 hours',
       difficulty: 'Easy',
-      image : '/images/Billede 360.jpg',
+      image : '/images/Jolly Buoy Island.png',
       bestTime: 'Early Morning',
-      groupSize: '2-6 people'
+      groupSize: '4-10 people'
     },
     {
       id: 7,
-      title: 'Village Walking Tours',
-      category: 'culture',
-      description: 'Immerse yourself in local culture with guided walks through Sundergarh village. Meet locals and learn about traditional island life.',
-      duration: '2-3 hours',
-      difficulty: 'Easy',
-      image : '/images/Billede 346.jpg',
-      bestTime: 'Afternoon',
+      title: 'Ross Island',
+      category: 'adventure',
+      description: 'Trek through dense tropical forests ranging from tidal swamp forest to evergreen to littoral forests. Perfect for adventure enthusiasts and nature lovers.',
+      duration: '3-4 hours',
+      difficulty: 'Moderate to Challenging',
+      image : '/images/Ross Island.png',
+      bestTime: 'Morning',
       groupSize: '4-10 people'
     },
     {
       id: 8,
-      title: 'Beach Exploration',
-      category: 'water',
-      description: 'Discover lesser-known exotic beaches with pristine white sand and crystal-clear waters. Perfect for swimming and relaxation.',
-      duration: '3-4 hours',
-      difficulty: 'Easy',
-      image : '/images/DSC00031.JPG',
-      bestTime: 'Morning or Afternoon',
-      groupSize: '2-12 people'
+      title: 'Chidiya Tapu',
+      category: 'adventure',
+      description: 'Experience overnight camping on pristine beaches with evergreen forests. Enjoy bonfires, stargazing, and the sounds of nature in complete serenity.',
+      duration: 'Full Day',
+      difficulty: 'Moderate',
+      image : '/images/Chidiya Tapu.png',
+      bestTime: 'Evening to Morning',
+      groupSize: '6-15 people'
     }
   ];
 
@@ -117,64 +115,43 @@ export default function ExperiencesPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-cream">
       <Navbar />
       
       {/* Hero Section */}
-      <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src = "/images/Billede 390.jpg"
-            alt="Experiences at Dew Dale"
-            className="w-full h-full object-cover object-top"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/40"></div>
+      <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/images/Billede 225.jpg')" }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60"></div>
         </div>
         
-        <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 font-serif">
-            Unforgettable Experiences
+        <div className="relative z-10 text-center text-white px-4">
+          <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
+            Experiences
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-white/95 leading-relaxed">
-            Discover the magic of Baratang Island through curated adventures and authentic cultural encounters
+          <p className="text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+            Discover the magic of Baratang Island through curated adventures and authentic natural encounters
           </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <a
-              href={whatsappBookingUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center gap-2 whitespace-nowrap cursor-pointer"
-            >
-              <i className="ri-whatsapp-line text-xl"></i>
-              Book Your Adventure
-            </a>
-            <a
-              href="#experiences"
-              className="bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 border border-white/30 whitespace-nowrap cursor-pointer"
-            >
-              Explore Activities
-            </a>
-          </div>
         </div>
       </section>
 
       {/* Category Filter */}
-      <section className="py-12 bg-stone-50">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="flex flex-wrap gap-3 justify-center">
+      <section className="py-12 bg-white border-b border-sage/20">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-wrap justify-center gap-4">
             {categories.map((category) => (
               <button
                 key={category.id}
                 onClick={() => setSelectedCategory(category.id)}
-                className={`px-6 py-3 rounded-full font-medium transition-all duration-300 flex items-center gap-2 whitespace-nowrap cursor-pointer ${
+                className={`flex items-center gap-2 px-6 py-3 rounded-full font-medium transition-all duration-300 ${
                   selectedCategory === category.id
-                    ? 'bg-emerald-600 text-white shadow-lg'
-                    : 'bg-white text-stone-700 hover:bg-stone-100 border border-stone-200'
+                    ? 'bg-forest-dark text-white shadow-lg scale-105'
+                    : 'bg-cream text-forest-dark hover:bg-sage/20'
                 }`}
               >
-                <div className="w-5 h-5 flex items-center justify-center">
-                  <i className={`${category.icon} text-lg`}></i>
-                </div>
+                <i className={`${category.icon} text-xl`}></i>
                 {category.name}
               </button>
             ))}
@@ -183,76 +160,55 @@ export default function ExperiencesPage() {
       </section>
 
       {/* Experiences Grid */}
-      <section id="experiences" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-8">
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredExperiences.map((experience) => (
               <div
                 key={experience.id}
-                className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group"
+                className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 group"
               >
-                <div className="relative h-80 overflow-hidden">
+                {/* Image */}
+                <div className="relative h-64 overflow-hidden">
                   <img
                     src={experience.image}
                     alt={experience.title}
-                    className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />
-                  <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm px-4 py-2 rounded-full">
-                    <span className={`font-semibold text-sm ${getDifficultyColor(experience.difficulty)}`}>
+                  <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full">
+                    <span className={`text-sm font-semibold ${getDifficultyColor(experience.difficulty)}`}>
                       {experience.difficulty}
                     </span>
                   </div>
                 </div>
-                
-                <div className="p-8">
-                  <h3 className="text-2xl font-bold text-stone-800 mb-3 font-serif">
+
+                {/* Content */}
+                <div className="p-6">
+                  <h3 className="font-serif text-2xl font-bold text-forest-dark mb-3">
                     {experience.title}
                   </h3>
-                  <p className="text-stone-600 mb-6 leading-relaxed">
+                  <p className="text-charcoal/80 leading-relaxed mb-6">
                     {experience.description}
                   </p>
-                  
-                  <div className="grid grid-cols-2 gap-4 mb-6">
-                    <div className="flex items-start gap-3">
-                      <div className="w-5 h-5 flex items-center justify-center text-emerald-600">
-                        <i className="ri-time-line text-lg"></i>
-                      </div>
-                      <div>
-                        <p className="text-xs text-stone-500 mb-1">Duration</p>
-                        <p className="text-sm font-semibold text-stone-800">{experience.duration}</p>
-                      </div>
+
+                  {/* Details Grid */}
+                  <div className="space-y-3 text-sm">
+                    <div className="flex items-center gap-2 text-charcoal/70">
+                      <i className="ri-time-line text-gold text-lg"></i>
+                      <span className="font-medium">Duration</span>
+                      <span className="ml-auto">{experience.duration}</span>
                     </div>
-                    
-                    <div className="flex items-start gap-3">
-                      <div className="w-5 h-5 flex items-center justify-center text-emerald-600">
-                        <i className="ri-sun-line text-lg"></i>
-                      </div>
-                      <div>
-                        <p className="text-xs text-stone-500 mb-1">Best Time</p>
-                        <p className="text-sm font-semibold text-stone-800">{experience.bestTime}</p>
-                      </div>
+                    <div className="flex items-center gap-2 text-charcoal/70">
+                      <i className="ri-sun-line text-gold text-lg"></i>
+                      <span className="font-medium">Best Time</span>
+                      <span className="ml-auto">{experience.bestTime}</span>
                     </div>
-                    
-                    <div className="flex items-start gap-3">
-                      <div className="w-5 h-5 flex items-center justify-center text-emerald-600">
-                        <i className="ri-group-line text-lg"></i>
-                      </div>
-                      <div>
-                        <p className="text-xs text-stone-500 mb-1">Group Size</p>
-                        <p className="text-sm font-semibold text-stone-800">{experience.groupSize}</p>
-                      </div>
+                    <div className="flex items-center gap-2 text-charcoal/70">
+                      <i className="ri-group-line text-gold text-lg"></i>
+                      <span className="font-medium">Group Size</span>
+                      <span className="ml-auto">{experience.groupSize}</span>
                     </div>
                   </div>
-                  
-                  <a
-                    href={whatsappBookingUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center gap-2 whitespace-nowrap cursor-pointer"
-                  >
-                    <i className="ri-whatsapp-line text-lg"></i>
-                    Book This Experience
-                  </a>
                 </div>
               </div>
             ))}
@@ -260,111 +216,17 @@ export default function ExperiencesPage() {
         </div>
       </section>
 
-      {/* Important Information */}
-      <section className="py-20 bg-stone-50">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-stone-800 mb-4 font-serif">
-              Important Information
-            </h2>
-            <p className="text-stone-600 text-lg max-w-2xl mx-auto">
-              Everything you need to know before booking your adventure
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-2xl shadow-md">
-              <div className="w-14 h-14 flex items-center justify-center bg-emerald-100 rounded-full mb-6">
-                <i className="ri-calendar-check-line text-2xl text-emerald-600"></i>
-              </div>
-              <h3 className="text-xl font-bold text-stone-800 mb-3">Booking & Cancellation</h3>
-              <ul className="space-y-2 text-stone-600">
-                <li className="flex items-start gap-2">
-                  <i className="ri-check-line text-emerald-600 mt-1"></i>
-                  <span>Book at least 24 hours in advance</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <i className="ri-check-line text-emerald-600 mt-1"></i>
-                  <span>Free cancellation up to 12 hours before</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <i className="ri-check-line text-emerald-600 mt-1"></i>
-                  <span>Weather-dependent activities may be rescheduled</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="bg-white p-8 rounded-2xl shadow-md">
-              <div className="w-14 h-14 flex items-center justify-center bg-amber-100 rounded-full mb-6">
-                <i className="ri-shield-check-line text-2xl text-amber-600"></i>
-              </div>
-              <h3 className="text-xl font-bold text-stone-800 mb-3">Safety & Guidelines</h3>
-              <ul className="space-y-2 text-stone-600">
-                <li className="flex items-start gap-2">
-                  <i className="ri-check-line text-emerald-600 mt-1"></i>
-                  <span>Experienced guides for all activities</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <i className="ri-check-line text-emerald-600 mt-1"></i>
-                  <span>Safety equipment provided</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <i className="ri-check-line text-emerald-600 mt-1"></i>
-                  <span>Follow guide instructions at all times</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="bg-white p-8 rounded-2xl shadow-md">
-              <div className="w-14 h-14 flex items-center justify-center bg-blue-100 rounded-full mb-6">
-                <i className="ri-luggage-cart-line text-2xl text-blue-600"></i>
-              </div>
-              <h3 className="text-xl font-bold text-stone-800 mb-3">What to Bring</h3>
-              <ul className="space-y-2 text-stone-600">
-                <li className="flex items-start gap-2">
-                  <i className="ri-check-line text-emerald-600 mt-1"></i>
-                  <span>Comfortable clothing and footwear</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <i className="ri-check-line text-emerald-600 mt-1"></i>
-                  <span>Sunscreen and insect repellent</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <i className="ri-check-line text-emerald-600 mt-1"></i>
-                  <span>Water bottle and camera</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-emerald-600 to-emerald-700">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-serif">
-            Ready for Your Adventure?
+      {/* FAQ Section */}
+      <section className="py-20 bg-sage/5">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <h2 className="font-serif text-4xl font-bold text-center text-forest-dark mb-12">
+            Everything you need to know before booking your adventure
           </h2>
-          <p className="text-xl text-white/95 mb-8 leading-relaxed">
-            Contact our travel desk to customize your perfect experience package
-          </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <a
-              href={whatsappBookingUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-white hover:bg-stone-100 text-emerald-600 px-8 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center gap-2 whitespace-nowrap cursor-pointer shadow-lg"
-            >
-              <i className="ri-whatsapp-line text-xl"></i>
-              WhatsApp Us
-            </a>
-            <a
-              href="tel:+919434280628"
-              className="bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 border border-white/30 flex items-center gap-2 whitespace-nowrap cursor-pointer"
-            >
-              <i className="ri-phone-line text-xl"></i>
-              Call Now
-            </a>
+          
+          <div className="bg-white rounded-2xl p-8 shadow-lg">
+            <p className="text-lg text-center text-charcoal/80">
+              Contact our travel desk to customize your perfect experience package
+            </p>
           </div>
         </div>
       </section>

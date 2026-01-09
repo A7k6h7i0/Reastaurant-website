@@ -13,24 +13,19 @@ const Testimonials = () => {
 
   const testimonials = [
     {
-      name: 'Priya Sharma',
+      name: 'Mrityunjoy Chakraborty',
       location: 'Mumbai, India',
-      image: 'https://readdy.ai/api/search-image?query=Professional%20Indian%20woman%20in%20her%20thirties%20smiling%20warmly%20at%20camera%2C%20casual%20elegant%20attire%2C%20natural%20outdoor%20lighting%2C%20genuine%20happy%20expression%2C%20travel%20lifestyle%20portrait%20with%20simple%20blurred%20background&width=400&height=500&seq=guest-001&orientation=portrait',
-      review: 'Dew Dale Resorts exceeded all our expectations! The limestone caves were breathtaking, and the eco-friendly approach made us feel good about our stay. The staff went above and beyond to make our anniversary special.',
-      rating: 5,
+      review: "Resort is located in a rural setting. Here, one can enjoy the sounds of nature, peace & quiet. The Resort is well-maintained, clean. Staff employed are locals. Food is simple and tasty. All in all a nice place to stay with family.",
     },
     {
-      name: 'Rajesh Kumar',
+      name: 'Varun Sharma',
       location: 'Bangalore, India',
-      image: 'https://readdy.ai/api/search-image?query=Indian%20man%20in%20his%20forties%20with%20friendly%20smile%2C%20casual%20shirt%2C%20outdoor%20natural%20setting%2C%20confident%20relaxed%20expression%2C%20vacation%20portrait%20photography%20with%20simple%20blurred%20background&width=400&height=500&seq=guest-002&orientation=portrait',
-      review: 'An absolute hidden gem! The mangrove boat ride at sunrise was magical. Being surrounded by pristine forest while enjoying modern comforts is a rare combination. Highly recommend for nature lovers.',
-      rating: 5,
+      review: "The property is situated amidst lush green, calm and serene rural area of Baratang. The stay was pleasant, rooms spacious and clean and staff was helpful and courteous. The Manager Mr. Tejasvi was really friendly, helpful and efficiently took care of all our requirements.",
     },
     {
-      name: 'Sarah & James Wilson',
+      name: 'Joshna John',
       location: 'London, UK',
-      image: 'https://readdy.ai/api/search-image?query=Happy%20Caucasian%20couple%20in%20their%20thirties%20smiling%20together%2C%20casual%20vacation%20attire%2C%20tropical%20setting%2C%20genuine%20joyful%20expressions%2C%20travel%20couple%20portrait%20with%20simple%20blurred%20background&width=400&height=500&seq=guest-003&orientation=portrait',
-      review: 'Our honeymoon at Dew Dale was perfect! The resort\'s commitment to responsible tourism and the untouched beauty of Baratang Island made it unforgettable. The Parrot Island sunset is something we\'ll cherish forever.',
+      review: "recommended baratang this time and Dew dale resorts for the stay. This Beautiful resort had brilliant service and all members of staff greeted us with a friendly face. restaurant service and food was also very good . Very attractive with lovely rooms.Clean, stylish and very comfortable.",
       rating: 5,
     },
   ];
@@ -79,14 +74,6 @@ const Testimonials = () => {
               className="bg-white rounded-3xl overflow-hidden shadow-2xl"
             >
               <div className="grid grid-cols-1 md:grid-cols-3">
-                {/* Image Section */}
-                <div className="relative h-64 md:h-auto">
-                  <img
-                    src={testimonials[currentIndex].image}
-                    alt={testimonials[currentIndex].name}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
 
                 {/* Content Section */}
                 <div className="md:col-span-2 p-8 md:p-12 flex flex-col justify-center">

@@ -15,22 +15,20 @@ const RoomsPage = () => {
       name: 'Deluxe Double Room - AC',
       category: 'Air Conditioned',
       images: [
-          '/images/4.jpeg',
-          '/images/5.jpeg',
+          '/images/RestaurantImage.png',
+          '/images/towelswans.png',
           '/images/7.jpeg',
       ],
-      description: 'Experience ultimate comfort in our air-conditioned deluxe rooms. Featuring modern amenities and elegant design, these rooms offer a perfect blend of luxury and nature. Large windows provide stunning forest views while maintaining your comfort with climate control.',
+      description: 'Dew Dale Resorts is the only property of its kind in the entire region. Beautiful Architechture and well furnished rooms are the main highlights of the Resort .Located about 65 miles from Port Blair in the Sundergarh village on Baratang Island is this modern, eco-friendly resort nestled amidst the lush green forest near lesser known exotic beaches. The hotel s travel desk can help guests arrange a host of activities, tours and excursions, including canoeing and kayaking, safaris, bird-watching, hiking, biking, hand-line fishing and rural village walking tours. Meeting facilities for executive travelers are also available. 16 well furnished deluxe double room, cottage type with independent sit outs in a village setting located in the midst of evergreen forest. Air conditioners are provided in all rooms for your comfort.',
       amenities: [
-        'Air Conditioning',
-        'King Size Bed',
-        'En-suite Bathroom',
-        'Forest View',
-        'Mini Refrigerator',
-        'Hot Water',
-        'Free Wi-Fi',
-        'Room Service',
-        'Complimentary Toiletries',
-        'Tea/Coffee Maker',
+        'All rooms are furnished with Double bed.',
+        '24 Hrs Cable connection with satellite Channels.',
+        '24 hrs. hot / cold water in rooms.',
+        'Intercom facility from all rooms.',
+        'Kitchen counter and minibar.',
+        'Out door & indoor games.',
+        'A multi-cuisine open restaurant.',
+        'Arrangements for meeting, training and seminars for 50 Pax',
       ],
       occupancy: '2 Adults',
       size: '320 sq ft',
@@ -47,9 +45,9 @@ const RoomsPage = () => {
       name: 'Deluxe Double Room - Non AC',
       category: 'Natural Ventilation',
       images: [
-        '/images/5.jpeg',
+        '/images/towelswans.png',
+       '/images/RestaurantImage.png',
         '/images/7.jpeg',
-        '/images/4.jpeg',
       ],
       description: 'Embrace the natural climate of Baratang Island in our non-AC deluxe rooms. Designed with excellent cross-ventilation and ceiling fans, these rooms offer an authentic tropical experience while maintaining comfort. Perfect for nature enthusiasts who want to stay connected to the environment.',
       amenities: [
@@ -119,7 +117,7 @@ const RoomsPage = () => {
       <section className="relative h-[60vh] min-h-[400px] flex items-center overflow-hidden mt-20">
         <div className="absolute inset-0">
           <img
-          src = "images/3.jpeg"
+          src = "images/RestaurantImage.png"
           alt="Dew Dale Resorts Rooms"
           className="w-full h-full object-cover"
           />

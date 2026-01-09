@@ -35,7 +35,7 @@ const AboutPage = () => {
       <section ref={heroRef} className="relative h-[70vh] min-h-[500px] flex items-center overflow-hidden mt-20">
         <div className="absolute inset-0">
           <img
-            src="/images/2.jpeg"
+            src="/images/AboutHeroImage.png"
             alt="Dew Dale Resorts aerial view"
             className="w-full h-full object-cover"
           />
@@ -89,21 +89,14 @@ const AboutPage = () => {
               transition={{ duration: 0.8 }}
             >
               <h2 className="font-serif font-bold text-4xl md:text-5xl text-forest-dark mb-6">
-                A Vision Born from Nature
+                Dew Dale Resort at Baratang Island
               </h2>
               <div className="space-y-6 text-olive text-base leading-relaxed">
                 <p>
-                  Dew Dale Resorts emerged from a simple yet powerful vision: to create a sanctuary where travelers could experience the raw beauty of Andaman's wilderness without compromising on comfort or contributing to environmental degradation.
+
+               The island has dense Tropical Forests of all types ranging from tidal swamp forest to Evergreen to littoral forests laced with sandy beaches along its coast at Baludera, Roglachang etc. The presence of Mud Volcanoes and limestone caves is a rare attraction for tourists, as it is present only in a few places in the world and these are truly wonders of nature and must see sights.
                 </p>
-                <p>
-                  As the pioneering tourism project in Baratang Island, we recognized the immense responsibility of setting the right precedent. Located on the 400 km main island highway, 105 km from Port Blair, our resort is surrounded by thick tropical forests that have remained largely untouched by modern development.
-                </p>
-                <p>
-                  Our mission extends beyond hospitality. We are committed to rural and eco-tourism that empowers local communities, preserves indigenous culture, and protects the fragile ecosystem that makes this region so extraordinary. Every decision we make is guided by the principle of leaving the smallest possible footprint while creating the most meaningful experiences.
-                </p>
-                <p>
-                  From employing local staff to sourcing ingredients from nearby villages, from using sustainable building materials to implementing comprehensive waste management systems, Dew Dale Resorts represents a new paradigm in luxury travel—one where indulgence and responsibility walk hand in hand.
-                </p>
+        
               </div>
             </motion.div>
 
@@ -121,19 +114,19 @@ const AboutPage = () => {
                     className="w-full h-64 object-cover rounded-2xl shadow-lg"
                   />
                   <img
-                    src="/images/4.jpeg"
+                    src="/images/RestaurantImage.png"
                     alt="Local community"
                     className="w-full h-48 object-cover rounded-2xl shadow-lg"
                   />
                 </div>
                 <div className="space-y-4 pt-12">
                   <img
-                    src="/images/5.jpeg"
+                    src="/images/Billede 225.jpg"
                     alt="Pristine forest"
                     className="w-full h-48 object-cover rounded-2xl shadow-lg"
                   />
                   <img
-                    src="/images/6.jpeg"
+                    src="/images/About2.png"
                     alt="Sustainable practices"
                     className="w-full h-64 object-cover rounded-2xl shadow-lg"
                   />
@@ -197,7 +190,7 @@ const AboutPage = () => {
             >
               <div className="relative h-[500px] rounded-3xl overflow-hidden shadow-2xl">
                 <img
-                  src="/images/7.jpeg"
+                  src="/images/About1.png"
                   alt="Location"
                   className="w-full h-full object-cover"
                 />
@@ -233,7 +226,7 @@ const AboutPage = () => {
                       Strategic Highway Location
                     </h4>
                     <p className="text-olive text-base leading-relaxed">
-                      Situated on the 400 km main island highway, making it easily accessible while maintaining its remote charm.
+                      Baratang Island is located at about 100 Km off the Capital city of Port Blair on the NH 4 (known as Andaman Trunk Road) towards Diglipur. The total length of the Island is around 22 Kms and totally separated by Creeks on both sides.
                     </p>
                   </div>
                 </div>
@@ -244,7 +237,7 @@ const AboutPage = () => {
                   </div>
                   <div>
                     <h4 className="font-sans font-semibold text-forest-dark text-lg mb-2">
-                      105 km from Port Blair
+                      100 km from Port Blair
                     </h4>
                     <p className="text-olive text-base leading-relaxed">
                       A scenic 3-hour journey through tribal reserves and pristine forests, offering glimpses of untouched Andaman.
