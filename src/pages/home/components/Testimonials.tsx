@@ -16,11 +16,13 @@ const Testimonials = () => {
       name: 'Mrityunjoy Chakraborty',
       location: 'Mumbai, India',
       review: "Resort is located in a rural setting. Here, one can enjoy the sounds of nature, peace & quiet. The Resort is well-maintained, clean. Staff employed are locals. Food is simple and tasty. All in all a nice place to stay with family.",
+      rating: 5,
     },
     {
       name: 'Varun Sharma',
       location: 'Bangalore, India',
       review: "The property is situated amidst lush green, calm and serene rural area of Baratang. The stay was pleasant, rooms spacious and clean and staff was helpful and courteous. The Manager Mr. Tejasvi was really friendly, helpful and efficiently took care of all our requirements.",
+      rating: 5,
     },
     {
       name: 'Joshna John',
