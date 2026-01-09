@@ -17,7 +17,7 @@ const RoomsPage = () => {
       images: [
           '/images/RestaurantImage.png',
           '/images/towelswans.png',
-          '/images/7.jpeg',
+          '/images/1.png',
       ],
       description: 'Dew Dale Resorts is the only property of its kind in the entire region. Beautiful Architechture and well furnished rooms are the main highlights of the Resort .Located about 65 miles from Port Blair in the Sundergarh village on Baratang Island is this modern, eco-friendly resort nestled amidst the lush green forest near lesser known exotic beaches. The hotel s travel desk can help guests arrange a host of activities, tours and excursions, including canoeing and kayaking, safaris, bird-watching, hiking, biking, hand-line fishing and rural village walking tours. Meeting facilities for executive travelers are also available. 16 well furnished deluxe double room, cottage type with independent sit outs in a village setting located in the midst of evergreen forest. Air conditioners are provided in all rooms for your comfort.',
       amenities: [
@@ -47,7 +47,7 @@ const RoomsPage = () => {
       images: [
         '/images/towelswans.png',
        '/images/RestaurantImage.png',
-        '/images/7.jpeg',
+        '/images/1.png',
       ],
       description: 'Embrace the natural climate of Baratang Island in our non-AC deluxe rooms. Designed with excellent cross-ventilation and ceiling fans, these rooms offer an authentic tropical experience while maintaining comfort. Perfect for nature enthusiasts who want to stay connected to the environment.',
       amenities: [
@@ -77,9 +77,9 @@ const RoomsPage = () => {
       name: 'Forest Suite',
       category: 'Premium Suite',
       images: [
-        '/images/7.jpeg',
-        '/images/4.jpeg',
-        '/images/5.jpeg',
+        '/images/1.png',
+        '/images/RestaurantImage.png',
+        '/images/towelswans.png',
       ],
       description: 'Our most exclusive accommodation, the Forest Suite offers unparalleled luxury and space. With a separate living area, panoramic forest views, and premium amenities, this suite is perfect for honeymooners or those seeking the ultimate in comfort and privacy.',
       amenities: [

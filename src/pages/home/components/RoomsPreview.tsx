@@ -24,7 +24,7 @@ const RoomsPreview = () => {
     },
     {
       name: 'Forest Suite',
-      image: '/images/7.jpeg ',
+      image: '/images/1.png',
       amenities: ['Living Area', 'Premium AC', 'Panoramic View', 'Mini Bar'],
       price: '₹6,500',
     },
