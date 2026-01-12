@@ -61,17 +61,7 @@ export default function ExperiencesPage() {
       bestTime: 'Morning or Afternoon',
       groupSize: '4-15 people'
     },
-    {
-      id: 6,
-      title: 'Jolly Buoy Island',
-      category: 'water',
-      description: 'Experience the rich mangrove ecosystem through a boat ride. An attraction to bird lovers and nature enthusiasts, as biodiversity rich areas which harbor diverse flora and fauna.',
-      duration: '2-3 hours',
-      difficulty: 'Easy',
-      image : '/images/Jolly Buoy Island.png',
-      bestTime: 'Early Morning',
-      groupSize: '4-10 people'
-    },
+
     {
       id: 7,
       title: 'Ross Island',
@@ -83,17 +73,6 @@ export default function ExperiencesPage() {
       bestTime: 'Morning',
       groupSize: '4-10 people'
     },
-    {
-      id: 8,
-      title: 'Chidiya Tapu',
-      category: 'adventure',
-      description: 'Experience overnight camping on pristine beaches with evergreen forests. Enjoy bonfires, stargazing, and the sounds of nature in complete serenity.',
-      duration: 'Full Day',
-      difficulty: 'Moderate',
-      image : '/images/Chidiya Tapu.png',
-      bestTime: 'Evening to Morning',
-      groupSize: '6-15 people'
-    }
   ];
 
   const categories = [

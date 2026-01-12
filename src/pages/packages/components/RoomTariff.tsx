@@ -12,32 +12,32 @@ const RoomTariff = () => {
   const tariffData = [
     {
       roomType: 'Double Deluxe Room (AC)',
-      regularPrice: '₹5,999',
-      peakPrice: '₹6,999',
+      regularPrice: '₹6,990',
+      peakPrice: '₹7,990',
       icon: 'ri-temp-cold-line',
     },
     {
       roomType: 'Double Deluxe Room (Fan Cooled)',
-      regularPrice: '₹4,999',
-      peakPrice: '₹5,999',
+      regularPrice: '₹5,990',
+      peakPrice: '₹6,990',
       icon: 'ri-windy-line',
     },
     {
       roomType: 'Extra Adult with Mattress',
-      regularPrice: '₹1,499',
-      peakPrice: '₹1,499',
+      regularPrice: '₹1,990',
+      peakPrice: '₹2,100',
       icon: 'ri-user-add-line',
     },
     {
       roomType: 'Child (5-12 Years) w/o Extra Mattress',
-      regularPrice: '₹999',
-      peakPrice: '₹999',
+      regularPrice: '990',
+      peakPrice: '1,100',
       icon: 'ri-user-smile-line',
     },
     {
       roomType: 'Children Below 5 Years w/o Extra Mattress',
-      regularPrice: '₹499',
-      peakPrice: '₹499',
+      regularPrice: 'Complimentary',
+      peakPrice: 'Complimentary',
       icon: 'ri-emotion-happy-line',
     },
   ];

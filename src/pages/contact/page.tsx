@@ -316,14 +316,14 @@ export default function ContactPage() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {/* By Sea */}
+            {/* By Air */}
             <div className="bg-cream rounded-3xl p-8 hover:shadow-xl transition-all duration-300">
               <div className="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mb-6">
-                <i className="ri-ship-line text-3xl text-gold"></i>
+                <i className="ri-flight-takeoff-line text-3xl text-gold"></i>
               </div>
-              <h3 className="font-serif text-2xl font-bold text-forest-dark mb-4">By Sea</h3>
+              <h3 className="font-serif text-2xl font-bold text-forest-dark mb-4">By Air</h3>
               <p className="text-charcoal/80 leading-relaxed mb-4">
-                Regular ferry services connect Port Blair to Baratang Island. Enjoy the beautiful coastal views during your journey.
+                Regular ferry services connect Port Blair to Baratang Island. Enjoy the beautiful views during your journey.
               </p>
               <div className="inline-flex items-center gap-2 text-gold font-semibold">
                 <i className="ri-calendar-line"></i>
@@ -348,6 +348,95 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+
+      {/* Additional Information Section */}
+<section className="py-20 bg-white">
+  <div className="container mx-auto px-4 max-w-6xl">
+    <div className="text-center mb-16">
+      <h2 className="font-serif text-4xl md:text-5xl font-bold text-forest-dark mb-4">
+        Additional Information
+      </h2>
+      <p className="text-lg text-charcoal/70 max-w-2xl mx-auto">
+        Everything you need to know before planning your stay
+      </p>
+    </div>
+
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      {/* Terms & Conditions */}
+      <div className="bg-cream rounded-3xl p-8 hover:shadow-xl transition-all duration-300">
+        <div className="w-14 h-14 bg-gold/10 rounded-full flex items-center justify-center mb-6">
+          <i className="ri-file-text-line text-2xl text-gold"></i>
+        </div>
+        <h3 className="font-serif text-2xl font-bold text-forest-dark mb-4">
+          Terms & Conditions
+        </h3>
+        <p className="text-charcoal/80 leading-relaxed">
+          Please review our resort policies regarding stays, guest responsibilities,
+          property usage, and safety guidelines to ensure a pleasant experience.
+        </p>
+      </div>
+
+      {/* Refund & Cancellation Policy */}
+      <div className="bg-cream rounded-3xl p-8 hover:shadow-xl transition-all duration-300">
+        <div className="w-14 h-14 bg-gold/10 rounded-full flex items-center justify-center mb-6">
+          <i className="ri-refund-2-line text-2xl text-gold"></i>
+        </div>
+        <h3 className="font-serif text-2xl font-bold text-forest-dark mb-4">
+          Refund & Cancellation
+        </h3>
+        <p className="text-charcoal/80 leading-relaxed">
+          Cancellations and refunds are subject to our policy. Please contact us in
+          advance to understand timelines, charges, and eligibility.
+        </p>
+      </div>
+
+      {/* Privacy Policy */}
+      <div className="bg-cream rounded-3xl p-8 hover:shadow-xl transition-all duration-300">
+        <div className="w-14 h-14 bg-gold/10 rounded-full flex items-center justify-center mb-6">
+          <i className="ri-shield-check-line text-2xl text-gold"></i>
+        </div>
+        <h3 className="font-serif text-2xl font-bold text-forest-dark mb-4">
+          Privacy Policy
+        </h3>
+        <p className="text-charcoal/80 leading-relaxed">
+          We respect your privacy. All personal information shared with us is handled
+          securely and used only for booking and communication purposes.
+        </p>
+      </div>
+
+      {/* Packages */}
+      <div className="bg-cream rounded-3xl p-8 hover:shadow-xl transition-all duration-300">
+        <div className="w-14 h-14 bg-gold/10 rounded-full flex items-center justify-center mb-6">
+          <i className="ri-gift-line text-2xl text-gold"></i>
+        </div>
+        <h3 className="font-serif text-2xl font-bold text-forest-dark mb-4">
+          Packages
+        </h3>
+        <p className="text-charcoal/80 leading-relaxed">
+          Explore our specially curated stay packages that include accommodation,
+          sightseeing, and unique island experiences.
+        </p>
+      </div>
+
+      {/* Booking Engine */}
+      <div className="bg-cream rounded-3xl p-8 hover:shadow-xl transition-all duration-300 lg:col-span-2">
+        <div className="w-14 h-14 bg-gold/10 rounded-full flex items-center justify-center mb-6">
+          <i className="ri-calendar-check-line text-2xl text-gold"></i>
+        </div>
+        <h3 className="font-serif text-2xl font-bold text-forest-dark mb-4">
+          Booking Engine
+        </h3>
+        <p className="text-charcoal/80 leading-relaxed">
+          Our booking engine allows you to check availability, select rooms, and
+          confirm your stay seamlessly.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 
       {/* FAQ Section */}
       <section className="py-20 bg-sage/5">

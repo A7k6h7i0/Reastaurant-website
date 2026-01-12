@@ -14,19 +14,13 @@ const RoomsPreview = () => {
       name: 'Deluxe Double Room - AC',
       image: '/images/RestaurantImage.png',
       amenities: ['Air Conditioning', 'King Bed', 'Forest View', 'En-suite Bathroom'],
-      price: '₹4,500',
+      price: '₹6,900',
     },
     {
       name: 'Deluxe Double Room - Non AC',
       image:"/images/towelswans.png",
       amenities: ['Natural Ventilation', 'Double Bed', 'Garden View', 'Private Balcony'],
-      price: '₹3,500',
-    },
-    {
-      name: 'Forest Suite',
-      image: '/images/1.png',
-      amenities: ['Living Area', 'Premium AC', 'Panoramic View', 'Mini Bar'],
-      price: '₹6,500',
+      price: '₹5900',
     },
   ];
 
@@ -50,7 +44,7 @@ const RoomsPreview = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mb-12">
           {rooms.map((room, index) => (
             <motion.div
               key={index}

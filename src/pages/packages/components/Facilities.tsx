@@ -14,11 +14,6 @@ const Facilities = () => {
       description: 'All rooms furnished with comfortable double beds',
     },
     {
-      icon: 'ri-tv-2-line',
-      title: '21" Color Television',
-      description: '24 hrs cable connection with satellite channels',
-    },
-    {
       icon: 'ri-drop-line',
       title: '24 Hrs Hot/Cold Water',
       description: 'Round-the-clock water supply in all rooms',

@@ -35,18 +35,8 @@ const ExperienceHighlights = () => {
       size: 'small',
     },
     {
-      title: 'Jolly Buoy Island',
-      image: '/images/Jolly Buoy Island.png',
-      size: 'small',
-    },
-    {
       title: 'Ross Island',
       image: '/images/Ross Island.png',
-      size: 'small',
-    },
-    {
-      title: 'Chidiya Tapu',
-      image: '/images/Chidiya Tapu.png',
       size: 'small',
     },
   ];
