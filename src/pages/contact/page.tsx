@@ -323,7 +323,7 @@ export default function ContactPage() {
               </div>
               <h3 className="font-serif text-2xl font-bold text-forest-dark mb-4">By Air</h3>
               <p className="text-charcoal/80 leading-relaxed mb-4">
-                Regular ferry services connect Port Blair to Baratang Island. Enjoy the beautiful views during your journey.
+                Daily air services are available from Port Blair. Enjoy the beautiful views during your journey.
               </p>
               <div className="inline-flex items-center gap-2 text-gold font-semibold">
                 <i className="ri-calendar-line"></i>
