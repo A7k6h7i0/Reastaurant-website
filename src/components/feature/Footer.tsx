@@ -10,6 +10,14 @@ const Footer = () => {
     { name: 'Contact', path: '/contact' },
   ];
 
+   const policies = [
+  { name: 'Terms & Conditions', key: 'terms' },
+  { name: 'Refund & Cancellation', key: 'refund' },
+  { name: 'Privacy Policy', key: 'privacy' },
+  { name: 'Packages', key: 'packages' },
+  { name: 'Booking Engine', key: 'booking' },
+];
+
   const experiences = [
     { name: 'Limestone Caves', path: '/experiences' },
     { name: 'Mangrove Creek', path: '/experiences' },
@@ -78,6 +86,25 @@ const Footer = () => {
             </ul>
           </div>
 
+          <div>
+  <h4 className="font-serif font-semibold text-lg mb-6 text-gold">
+    Policies
+  </h4>
+  <ul className="space-y-3">
+    {policies.map(item => (
+      <li key={item.key}>
+        <Link
+          to={`/contact?info=${item.key}`}
+          className="text-sand-light text-sm hover:text-gold transition-colors"
+        >
+          {item.name}
+        </Link>
+      </li>
+    ))}
+  </ul>
+</div>
+
+
           {/* Experiences */}
           <div>
             <h4 className="font-serif font-semibold text-lg mb-6 text-gold">Experiences</h4>
@@ -95,6 +122,8 @@ const Footer = () => {
             </ul>
           </div>
 
+          
+
           {/* Contact */}
           <div>
             <h4 className="font-serif font-semibold text-lg mb-6 text-gold">Contact Us</h4>
@@ -111,7 +140,7 @@ const Footer = () => {
                   href="tel:+919434280628"
                   className="text-sand-light text-sm hover:text-gold transition-colors duration-300 whitespace-nowrap"
                 >
-                  +91 9434280628
+                  +91 9434280628 & +91 74793 52391
                 </a>
               </div>
               <div className="flex items-center space-x-3">

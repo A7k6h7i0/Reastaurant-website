@@ -1,6 +1,7 @@
 
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import BookingBar from './BookingBar'
 
 const HeroSection = () => {
   const [ref, inView] = useInView({
@@ -49,13 +50,15 @@ const HeroSection = () => {
             <h3 className="font-serif  text-5xl md:text-7xl lg:text-8xl text-white mb-6 leading-tight">
              Welcome To Dew Dale Resorts
             </h3>
-            <h2 className="font-serif font-light text-3xl md:text-4xl lg:text-5xl text-sand-light mb-8 leading-relaxed">
+            <h2 className="inner-block mb-10 font-serif font-light text-3xl md:text-4xl lg:text-5xl text-sand-light mb-8 leading-relaxed">
               A blissful staying experience
             </h2>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+            <BookingBar />
+
+            <div className="inner-block mt-6 flex flex-col sm:flex-row items-center justify-center gap-6">
               <motion.a
-                href={whatsappBookingUrl}
+                href={"https://live.ipms247.com/booking/book-rooms-dewdaleresorts"}
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}

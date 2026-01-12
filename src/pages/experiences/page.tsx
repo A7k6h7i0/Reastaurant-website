@@ -113,6 +113,14 @@ export default function ExperiencesPage() {
           <p className="text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
             Discover the magic of Baratang Island through curated adventures and authentic natural encounters
           </p>
+           <a
+              href={"https://live.ipms247.com/booking/book-rooms-dewdaleresorts"}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block mt-6 px-6 py-3 rounded-full bg-forest text-white font-sans font-medium text-sm tracking-wider uppercase transition-all duration-300 hover:bg-forest-light whitespace-nowrap cursor-pointer"
+            >
+              Book Now
+            </a>
         </div>
       </section>
 

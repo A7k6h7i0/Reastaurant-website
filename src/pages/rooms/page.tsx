@@ -212,7 +212,7 @@ const RoomsPage = () => {
                       </div>
                       <div className="flex flex-col sm:flex-row gap-3">
                         <a
-                          href={whatsappBookingUrl}
+                          href={"https://live.ipms247.com/booking/book-rooms-dewdaleresorts"}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="px-6 py-3 rounded-full bg-forest text-white font-sans font-medium text-sm tracking-wider uppercase transition-all duration-300 hover:bg-forest-light whitespace-nowrap cursor-pointer"
@@ -220,7 +220,7 @@ const RoomsPage = () => {
                           Book Now
                         </a>
                         <a
-                          href={whatsappBookingUrl}
+                          href={"https://live.ipms247.com/booking/book-rooms-dewdaleresorts"}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="px-6 py-3 rounded-full bg-transparent border-2 border-forest text-forest font-sans font-medium text-sm tracking-wider uppercase transition-all duration-300 hover:bg-forest hover:text-white whitespace-nowrap cursor-pointer flex items-center justify-center"

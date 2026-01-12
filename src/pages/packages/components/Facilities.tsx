@@ -137,9 +137,12 @@ const Facilities = () => {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <button className="px-8 py-3 rounded-full bg-gold text-white font-sans font-semibold text-sm tracking-wider uppercase transition-all duration-300 hover:bg-gold-light shadow-lg whitespace-nowrap cursor-pointer">
+                <a
+                  href={"https://live.ipms247.com/booking/book-rooms-dewdaleresorts"}
+                  className="px-8 py-3 rounded-full border-2 border-white text-white font-sans font-semibold text-sm tracking-wider uppercase transition-all duration-300 hover:bg-white hover:text-forest shadow-lg whitespace-nowrap cursor-pointer text-center"
+                >
                   Book Now
-                </button>
+                </a>
                 <a
                   href="tel:+919434280628"
                   className="px-8 py-3 rounded-full border-2 border-white text-white font-sans font-semibold text-sm tracking-wider uppercase transition-all duration-300 hover:bg-white hover:text-forest shadow-lg whitespace-nowrap cursor-pointer text-center"

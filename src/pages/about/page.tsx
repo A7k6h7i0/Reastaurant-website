@@ -275,7 +275,7 @@ const AboutPage = () => {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
             <a
-              href="https://wa.me/919434280628?text=Hello%2C%20I%20would%20like%20to%20book%20a%20stay%20at%20Dew%20Dale%20Resorts.%20Please%20share%20availability%20and%20booking%20details."
+              href="https://live.ipms247.com/booking/book-rooms-dewdaleresorts"
               target="_blank"
               rel="noopener noreferrer"
               className="px-10 py-4 rounded-full bg-gold text-white font-sans font-semibold text-base tracking-wider uppercase transition-all duration-300 hover:bg-gold-light shadow-xl whitespace-nowrap cursor-pointer"

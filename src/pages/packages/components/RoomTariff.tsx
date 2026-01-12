@@ -172,7 +172,7 @@ const RoomTariff = () => {
         >
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href={whatsappBookingUrl}
+              href={"https://live.ipms247.com/booking/book-rooms-dewdaleresorts"}
               target="_blank"
               rel="noopener noreferrer"
               className="px-10 py-4 rounded-full bg-forest text-white font-sans font-semibold text-base tracking-wider uppercase transition-all duration-300 hover:bg-forest-light shadow-lg whitespace-nowrap cursor-pointer"

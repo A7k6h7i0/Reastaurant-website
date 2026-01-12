@@ -34,9 +34,11 @@ const HeroSection = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button className="px-10 py-4 rounded-full bg-gold text-white font-sans font-semibold text-base tracking-wider uppercase transition-all duration-300 hover:bg-gold-light shadow-lg whitespace-nowrap cursor-pointer">
-              View Tariff
-            </button>
+            <a 
+            href={"https://live.ipms247.com/booking/book-rooms-dewdaleresorts"}
+            className="px-10 py-4 rounded-full bg-gold text-white font-sans font-semibold text-base tracking-wider uppercase transition-all duration-300 hover:bg-gold-light shadow-lg whitespace-nowrap cursor-pointer">
+              Book Now
+            </a>
             <a
               href="tel:+919434280628"
               className="px-10 py-4 rounded-full border-2 border-white text-white font-sans font-semibold text-base tracking-wider uppercase transition-all duration-300 hover:bg-white hover:text-forest shadow-lg whitespace-nowrap cursor-pointer"

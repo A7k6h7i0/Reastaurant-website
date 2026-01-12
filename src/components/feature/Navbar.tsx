@@ -24,7 +24,9 @@ const Navbar = () => {
     { name: 'Rooms & Stay', path: '/rooms' },
     { name: 'Packages', path: '/packages' },
     { name: 'Experiences', path: '/experiences' },
+    { name: 'Blog',path:'/blog'},
     { name: 'Contact', path: '/contact' },
+    
   ];
 
   // Check if current page is home
@@ -102,7 +104,7 @@ const Navbar = () => {
                 <i className="ri-phone-line text-xl"></i>
               </a>
               <a
-                href={whatsappBookingUrl}
+                href={"https://live.ipms247.com/booking/book-rooms-dewdaleresorts"}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`px-6 py-2.5 rounded-full font-sans font-medium text-sm tracking-wider uppercase transition-all duration-300 border-2 whitespace-nowrap cursor-pointer ${
@@ -158,7 +160,7 @@ const Navbar = () => {
                 </motion.div>
               ))}
               <motion.a
-                href={whatsappBookingUrl}
+                href={"https://live.ipms247.com/booking/book-rooms-dewdaleresorts"}
                 target="_blank"
                 rel="noopener noreferrer"
                 initial={{ opacity: 0, y: 20 }}

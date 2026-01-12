@@ -20,7 +20,7 @@ const RoomsPreview = () => {
       name: 'Deluxe Double Room - Non AC',
       image:"/images/towelswans.png",
       amenities: ['Natural Ventilation', 'Double Bed', 'Garden View', 'Private Balcony'],
-      price: '₹5900',
+      price: '₹5990',
     },
   ];
 
