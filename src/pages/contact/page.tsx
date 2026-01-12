@@ -285,7 +285,7 @@ export default function ContactPage() {
                     </h3>
                     <p className="text-charcoal/80 mb-2">24/7 Front Desk Service</p>
                     <div className="space-y-1 text-sm text-charcoal/60">
-                      <p>Check-in: 2:00 PM | Check-out: 11:00 AM</p>
+                      <p>Check-in: 9:00 AM | Check-out: 8:00 AM</p>
                     </div>
                   </div>
                 </div>

@@ -30,7 +30,7 @@ const RoomsPage = () => {
       ],
       occupancy: '2 Adults',
       size: '270 sq ft',
-      price: '₹6,900',
+      price: '₹6,990',
       features: [
         'Premium bedding with high thread count',
         'Eco-friendly air conditioning',
