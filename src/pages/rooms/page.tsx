@@ -256,8 +256,8 @@ const RoomsPage = () => {
               </div>
               <h3 className="font-serif font-semibold text-xl text-white mb-3">Check-in / Check-out</h3>
               <p className="text-sand-light text-sm leading-relaxed">
-                Check-in: 2:00 PM<br />
-                Check-out: 11:00 AM<br />
+                Check-in: 9:00 AM<br />
+                Check-out: 8:00 AM<br />
                 Early check-in subject to availability
               </p>
             </div>
