@@ -1,6 +1,8 @@
-import { Link } from 'react-router-dom';
+
+import { Link, useLocation } from 'react-router-dom';
 
 const Footer = () => {
+  const location = useLocation();
   const quickLinks = [
     { name: 'Home', path: '/' },
     { name: 'About Us', path: '/about' },
@@ -92,15 +94,15 @@ const Footer = () => {
   </h4>
   <ul className="space-y-3">
     {policies.map(item => (
-      <li key={item.key}>
-        <Link
-          to={`/contact?info=${item.key}`}
-          className="text-sand-light text-sm hover:text-gold transition-colors"
-        >
-          {item.name}
-        </Link>
-      </li>
-    ))}
+  <li key={item.key}>
+    <Link
+      to={`${location.pathname}?info=${item.key}`}
+      className="text-sand-light text-sm hover:text-gold transition-colors"
+    >
+      {item.name}
+    </Link>
+  </li>
+))}
   </ul>
 </div>
 

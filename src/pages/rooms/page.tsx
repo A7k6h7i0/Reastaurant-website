@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import Navbar from '../../components/feature/Navbar';
 import Footer from '../../components/feature/Footer';
+import PolicySection from '../../components/common/PolicySection';
 
 const RoomsPage = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
@@ -286,6 +287,7 @@ const RoomsPage = () => {
           </div>
         </div>
       </section>
+      <PolicySection />
 
       <Footer />
     </div>

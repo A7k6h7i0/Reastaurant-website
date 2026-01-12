@@ -8,6 +8,7 @@ import RoomsPreview from './components/RoomsPreview';
 import ThemePackages from './components/ThemePackages';
 import Testimonials from './components/Testimonials';
 import FinalCTA from './components/FinalCTA';
+import PolicySection from '../../components/common/PolicySection';
 
 const HomePage = () => {
   return (
@@ -22,6 +23,7 @@ const HomePage = () => {
         <Testimonials />
         <FinalCTA />
       </main>
+      <PolicySection />
       <Footer />
     </div>
   );

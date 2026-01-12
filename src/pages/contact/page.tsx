@@ -5,6 +5,7 @@ import Navbar from '../../components/feature/Navbar';
 import Footer from '../../components/feature/Footer';
 import { useSearchParams } from 'react-router-dom';
 import { useEffect, useRef } from 'react';
+import PolicySection from '../../components/common/PolicySection';
 
 
 
@@ -365,99 +366,6 @@ useEffect(() => {
         </div>
       </section>
 
-     
-{info && (
-  <section ref={infoRef} className="py-20 bg-white">
-    <div className="max-w-4xl mx-auto px-6">
-      <h2 className="font-serif text-4xl font-bold text-forest-dark mb-6 text-center">
-        {info === 'terms' && 'Terms & Conditions'}
-        {info === 'refund' && 'Refund & Cancellation Policy'}
-        {info === 'privacy' && 'Privacy Policy'}
-        {info === 'packages' && 'Packages'}
-        {info === 'booking' && 'Booking Engine'}
-      </h2>
-
-      <div className="bg-cream rounded-3xl p-8 shadow-lg text-charcoal leading-relaxed text-lg">
-        {info === 'terms' && (
-          <p>
-           Check-out time is 08.00 AM and Check-in 09.00 AM. Early check-in and late check-out is subject to availability of rooms. Any late check-out beyond 2.00 pm will be charged one extra night’s room rate.
-Early check-in or late check-out is subject to availability and may be chargeable by the hotel directly.
-All Reservation will be confirmed on 100% advance payment.
-Government approved photo identity proof with address of you and your companion(s) (if any) must be presented while checking-in. Foreign nationals are required to present their Passport and valid Visa. Indian nationals can present any one of these, which is mandatory: Passport, Driving License, Voter ID card, Aadhar Card bearing the holder's photograph and address.
-Taxes are subject to change. Any increase in the tariff due to change in taxes will be charged to the guest and will be collected during check-out.
-No refund would be allowed in any case on account of break down of electricity, failure of AC/ Geyser etc. during their stay in the Room.
-Once the entry for booking of rooms is made in the Booking register and the guest checks-in, no refund would be allowed in case the guest decides not to use the room on any account whatsoever.
-The management reserves the right to cancel any booking if the Guest is found to be performing any acts in violation of the rules and conditions of the Resort.
-          </p>
-        )}
-
-        {info === 'refund' && (
-          <p>
-            Cancellation & Amendments of Bookings :
-You may cancel your booking by sending an e-mail to dewdale.resorts@gmail.com with your reservation details to manage your booking.
-
-Please note the refund will be processed within 15 working days post sending an email request to dewdale.resorts@gmail.com with reservation number/details of the cancelled booking alongwith payment details.
-
-The Refund on cancellation would be as under
-For cancellation before 30 days - 75% of advance amount.
-Between 7 days & 29 days before Check-in - 50% of advance amount.
-upto 6 days before check-in - NO REFUND
-No Show Policy :
-In-case of no-show 100% charge will be applicable.
-          </p>
-        )}
-
-        {info === 'privacy' && (
-          <p>
-            Website Privacy Policy For Dew Dale Resorts.
-Information Collected and For What Purpose Dew Dale Resorts collects the following information through our website www.dewdaleresorts.online
-
-Analytics (Clickstream) Data
-Our servers automatically collect and log clickstream data for all visitors to our websites.
-
-Information collected includes:
-Referring website
-Pages visited
-Total bytes of data transferred
-Your geographic location
-Your Web Browser type and version
-Date/time each page was requested
-Your Operating System type and version
-Analytics data is used by Dew Dale Resorts to generate detailed reports and statistics on website visits.
-
-Cookies
-As is standard practice on many corporate websites, Dew Dale Resorts website uses cookies and other technologies to help understand which parts of our website are most popular, where our visitors are going, and how much time they spend there. We use cookies and other technologies to study traffic patterns on our website, and also to study the effectiveness of our customer communications.
-
-Form Data
-Our website contain on-line forms which enable you to submit enquiries for products or services, request support or to participate in an on-line discussion. All data collected through forms by Dew Dale Resorts is used only for the purpose for which it was supplied.
-
-Information Disclosure
-Dew Dale Resorts will not disclose any information obtained through our website to any third party without express consent. Dew Dale Resorts will have a record of the incoming email address if you have sent Dew Dale Resorts an email or submitted an enquiry. We do not add your email address to a mailing list and we will not send you unsolicited email (SPAM). Dew Dale Resorts will use your email address to respond to your requests and communicate directly with you. Dew Dale Resorts does not provide facilities for the secure transmission of information across the Internet. Website users should be aware that there are inherent risks transmitting information across the Internet.
-
-image
-Menu
-          </p>
-        )}
-
-        {info === 'packages' && (
-          <p>
-            Discover curated stay packages including accommodation,
-            sightseeing tours, meals, and local experiences.
-          </p>
-        )}
-
-        {info === 'booking' && (
-          <p>
-            Our booking engine allows real-time availability checks,
-            secure payments,  instant confirmations and online booking.
-          </p>
-        )}
-      </div>
-    </div>
-  </section>
-)}
-
-
 
 
 
@@ -574,6 +482,7 @@ Menu
           </div>
         </div>
       </section>
+      <PolicySection />
 
       <Footer />
     </div>
