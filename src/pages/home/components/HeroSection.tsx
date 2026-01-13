@@ -12,7 +12,8 @@ const HeroSection = () => {
   const whatsappBookingUrl = "https://wa.me/919434280628?text=Hello%2C%20I%20would%20like%20to%20book%20a%20stay%20at%20Dew%20Dale%20Resorts.%20Please%20share%20availability%20and%20booking%20details.";
 
   return (
-    <section className="relative h-screen w-full overflow-hidden">
+    <section className="relative min-h-[120vh] md:h-screen w-full overflow-hidden">
+
       {/* Background Image with Parallax Effect */}
       <motion.div
         initial={{ scale: 1.1 }}
