@@ -37,10 +37,10 @@ const HeroSection = () => {
 
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12 text-center">
           <motion.div
-  initial={{ opacity: 0, y: 30 }}
-  animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 30 }}
-  transition={{ duration: 0.8, delay: 0.3 }}
-  className="flex flex-col items-center space-y-10"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 30 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="flex flex-col items-center space-y-10"
 >
 
             <motion.div
@@ -59,7 +59,9 @@ const HeroSection = () => {
             </h3>
 
 
-            <BookingBar className = "mt-6"/>
+             <div className="w-full mt-6 px-2 sm:px-4 md:px-6">
+                <BookingBar />
+              </div>
 
             <div className="inner-block mt-6 flex flex-col sm:flex-row items-center justify-center gap-6">
               <motion.a

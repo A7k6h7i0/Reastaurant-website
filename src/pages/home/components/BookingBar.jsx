@@ -21,7 +21,7 @@ const BookingBar = () => {
   const totalPrice = PRICE_PER_NIGHT * rooms * nights;
 
   return (
-    <div className="relative z-20 mt-6 px-0 sm:px-3 md:px-4">
+    <div className="relative z-20 mt-6 px-1 sm:px-3 md:px-4">
 
       <div className="mx-auto w-full max-w-6xl bg-white rounded-xl shadow-lg border border-gray-200">
 
