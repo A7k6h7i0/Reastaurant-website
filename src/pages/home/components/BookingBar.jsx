@@ -19,83 +19,161 @@ const BookingBar = () => {
   const pricePerNight = roomPrices["Deluxe AC"];
   const totalPrice = pricePerNight * rooms * nights;
 
+  const formatDateDisplay = (dateStr) => {
+    const date = new Date(dateStr);
+    return `${String(date.getDate()).padStart(2, "0")}-${String(
+      date.getMonth() + 1
+    ).padStart(2, "0")}-${date.getFullYear()}`;
+  };
+
+  const CalendarIcon = () => (
+    <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <rect x="3" y="4" width="18" height="18" rx="2" ry="2" strokeWidth="2" />
+      <line x1="16" y1="2" x2="16" y2="6" strokeWidth="2" />
+      <line x1="8" y1="2" x2="8" y2="6" strokeWidth="2" />
+      <line x1="3" y1="10" x2="21" y2="10" strokeWidth="2" />
+    </svg>
+  );
+
   return (
-    <div className="relative z-20 -mt-24 flex justify-center">
-      <div className="w-full max-w-5xl px-4">
-        <div className="bg-[#F9F8F4] rounded-2xl shadow-xl px-5 py-4">
+    <div className="relative z-20 mt-10 md:-mt-20 flex justify-center px-4">
+      <div className="w-full max-w-5xl bg-[#F9F8F4] rounded-2xl shadow-xl">
+        {/* Desktop */}
+        <div className="hidden md:flex divide-x divide-gray-200">
+          <Section title="RESORT">
+            <p className="font-serif text-lg text-[#1F3D2B]">Dew Dale</p>
+            <p className="text-sm text-gray-600">Resorts</p>
+          </Section>
 
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-4 items-center">
+          <DateSection
+            label="CHECK-IN"
+            value={checkIn}
+            onChange={setCheckIn}
+            format={formatDateDisplay}
+            Icon={CalendarIcon}
+          />
 
-            {/* Resort */}
-            <div className="text-center md:text-left leading-tight">
-              <p className="text-[10px] tracking-[0.25em] uppercase text-gray-500">
-                Resort
-              </p>
-              <p className="font-serif text-base text-[#1F3D2B]">
-                Dew Dale
-              </p>
-              <p className="text-xs text-gray-600">Resorts</p>
-            </div>
+          <DateSection
+            label="CHECK-OUT"
+            value={checkOut}
+            onChange={setCheckOut}
+            format={formatDateDisplay}
+            Icon={CalendarIcon}
+          />
 
-            {/* Check-in */}
-            <div className="text-center md:text-left leading-tight">
-              <p className="text-[10px] tracking-[0.25em] uppercase text-gray-500">
-                Check-In
-              </p>
-              <input
-                type="date"
-                value={checkIn}
-                onChange={(e) => setCheckIn(e.target.value)}
-                className="w-full bg-transparent font-medium text-gray-800 text-sm focus:outline-none"
-              />
-            </div>
+          <Section title="GUESTS">
+            <RoomsGuestsDropdown
+              rooms={rooms}
+              setRooms={setRooms}
+              adults={adults}
+              setAdults={setAdults}
+              children={children}
+              setChildren={setChildren}
+            />
+          </Section>
 
-            {/* Check-out */}
-            <div className="text-center md:text-left leading-tight">
-              <p className="text-[10px] tracking-[0.25em] uppercase text-gray-500">
-                Check-Out
-              </p>
-              <input
-                type="date"
-                value={checkOut}
-                onChange={(e) => setCheckOut(e.target.value)}
-                className="w-full bg-transparent font-medium text-gray-800 text-sm focus:outline-none"
-              />
-            </div>
-
-            {/* Guests */}
-            <div className="text-center md:text-left leading-tight">
-              <p className="text-[10px] tracking-[0.25em] uppercase text-gray-500">
-                Guests
-              </p>
-              <RoomsGuestsDropdown
-                rooms={rooms}
-                setRooms={setRooms}
-                adults={adults}
-                setAdults={setAdults}
-                children={children}
-                setChildren={setChildren}
-              />
-            </div>
-
-            {/* Price */}
-            <div className="text-center md:text-right leading-tight">
-              <p className="text-[10px] tracking-[0.25em] uppercase text-gray-500">
-                Total
-              </p>
-              <p className="font-serif text-xl text-[#0F4C5C]">
-                ₹{totalPrice.toLocaleString()}
-              </p>
-              <p className="text-[11px] text-gray-500">
-                ₹{pricePerNight.toLocaleString()} / night
-              </p>
-            </div>
-
+          {/* CLEAN PRICE */}
+          <div className="flex-1 px-6 py-5 flex flex-col justify-center items-end">
+            <p className="text-[11px] tracking-widest uppercase text-gray-500">
+              Total Price
+            </p>
+            <p className="font-serif text-3xl text-[#0F4C5C] mt-1">
+              ₹{totalPrice.toLocaleString()}
+            </p>
+            <p className="text-xs text-gray-500 mt-1">
+              {rooms} Room × {nights} Night · ₹{pricePerNight.toLocaleString()}/night
+            </p>
           </div>
+        </div>
+
+        {/* Mobile */}
+        <div className="md:hidden p-4 space-y-4">
+          <Section title="RESORT">
+            <p className="font-serif text-lg text-[#1F3D2B]">Dew Dale</p>
+            <p className="text-sm text-gray-600">Resorts</p>
+          </Section>
+
+          <div className="grid grid-cols-2 gap-4">
+            <DateSection
+              label="CHECK-IN"
+              value={checkIn}
+              onChange={setCheckIn}
+              format={formatDateDisplay}
+              Icon={CalendarIcon}
+            />
+            <DateSection
+              label="CHECK-OUT"
+              value={checkOut}
+              onChange={setCheckOut}
+              format={formatDateDisplay}
+              Icon={CalendarIcon}
+            />
+          </div>
+
+          <Section title="GUESTS">
+            <RoomsGuestsDropdown
+              rooms={rooms}
+              setRooms={setRooms}
+              adults={adults}
+              setAdults={setAdults}
+              children={children}
+              setChildren={setChildren}
+            />
+          </Section>
+
+          {/* CLEAN MOBILE PRICE */}
+          <div className="mt-4 rounded-xl bg-gradient-to-br from-[#F0F7F4] to-[#E6F1ED] p-4 shadow-sm border border-[#d9ebe4]">
+  <p className="text-[10px] tracking-widest uppercase text-[#4A6F63]">
+    Total Price
+  </p>
+
+  <div className="flex items-end justify-between mt-1">
+    <p className="font-serif text-3xl md:text-2xl text-[#0F4C5C] leading-none">
+      ₹{totalPrice.toLocaleString()}
+    </p>
+
+    <span className="text-xs text-[#4A6F63] bg-white/70 px-2 py-0.5 rounded-md">
+      {rooms} Room · {nights} Night
+    </span>
+  </div>
+
+  <p className="text-xs text-[#5F7F75] mt-1">
+    ₹{pricePerNight.toLocaleString()} per night
+  </p>
+</div>
+
         </div>
       </div>
     </div>
   );
 };
+
+const Section = ({ title, children }) => (
+  <div className="flex-1 px-6 py-5">
+    <p className="text-[11px] tracking-widest uppercase text-gray-500 mb-1">
+      {title}
+    </p>
+    {children}
+  </div>
+);
+
+const DateSection = ({ label, value, onChange, format, Icon }) => (
+  <Section title={label}>
+    <div className="flex items-center gap-3">
+      <span className="font-medium text-gray-800">
+        {format(value)}
+      </span>
+      <div className="relative">
+        <Icon />
+        <input
+          type="date"
+          value={value}
+          onChange={(e) => onChange(e.target.value)}
+          className="absolute inset-0 opacity-0 cursor-pointer"
+        />
+      </div>
+    </div>
+  </Section>
+);
 
 export default BookingBar;

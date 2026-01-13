@@ -29,13 +29,19 @@ const HeroSection = () => {
       </motion.div>
 
       {/* Content Overlay */}
-      <div ref={ref} className="relative z-10 h-full flex items-center justify-center">
+      <div
+  ref={ref}
+  className="relative z-10 h-full flex items-center justify-center md:justify-center"
+>
+
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12 text-center">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 30 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-          >
+  initial={{ opacity: 0, y: 30 }}
+  animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 30 }}
+  transition={{ duration: 0.8, delay: 0.3 }}
+  className="flex flex-col items-center space-y-10"
+>
+
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: inView ? 1 : 0, scale: inView ? 1 : 0.9 }}
@@ -47,14 +53,12 @@ const HeroSection = () => {
               </span>
             </motion.div>
 
-            <h3 className="font-serif  text-5xl md:text-7xl lg:text-8xl text-white mb-6 leading-tight">
+            <h3 className="font-serif  text-5xl md:text-7xl lg:text-8xl text-white mb-8 leading-tight">
              Welcome To Dew Dale Resorts
             </h3>
-            <h2 className="inner-block mb-10 font-serif font-light text-3xl md:text-4xl lg:text-5xl text-sand-light mb-8 leading-relaxed">
-              A blissful staying experience
-            </h2>
 
-            <BookingBar />
+
+            <BookingBar className = "mt-6"/>
 
             <div className="inner-block mt-6 flex flex-col sm:flex-row items-center justify-center gap-6">
               <motion.a
