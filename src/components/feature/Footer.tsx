@@ -12,13 +12,6 @@ const Footer = () => {
     { name: 'Contact', path: '/contact' },
   ];
 
-   const policies = [
-  { name: 'Terms & Conditions', key: 'terms' },
-  { name: 'Refund & Cancellation', key: 'refund' },
-  { name: 'Privacy Policy', key: 'privacy' },
-  { name: 'Packages', key: 'packages' },
-  { name: 'Booking Engine', key: 'booking' },
-];
 
   const experiences = [
     { name: 'Limestone Caves', path: '/experiences' },
@@ -87,24 +80,27 @@ const Footer = () => {
               ))}
             </ul>
           </div>
-
-          <div>
-  <h4 className="font-serif font-semibold text-lg mb-6 text-gold">
-    Policies
-  </h4>
-  <ul className="space-y-3">
-    {policies.map(item => (
-  <li key={item.key}>
-    <Link
-      to={`${location.pathname}?info=${item.key}`}
-      className="text-sand-light text-sm hover:text-gold transition-colors"
-    >
-      {item.name}
-    </Link>
+  <div>         
+  <h4 className="font-serif font-semibold text-lg mb-6 text-gold">Policies</h4> 
+  <ul className="space-y-3">        
+  <li>
+    <Link to="/terms-and-conditions">Terms & Conditions</Link>
   </li>
-))}
-  </ul>
+  <li>
+    <Link to="/refund-policy">Refund & Cancellation</Link>
+  </li>
+  <li>
+    <Link to="/privacy-policy">Privacy Policy</Link>
+  </li>
+  <li>
+    <Link to="/packages-policy">Packages</Link>
+  </li>
+  <li>
+    <Link to="/booking-engine">Booking Engine</Link>
+  </li>
+</ul>
 </div>
+
 
 
           {/* Experiences */}

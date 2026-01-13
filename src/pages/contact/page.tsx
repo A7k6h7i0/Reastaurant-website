@@ -5,7 +5,7 @@ import Navbar from '../../components/feature/Navbar';
 import Footer from '../../components/feature/Footer';
 import { useSearchParams } from 'react-router-dom';
 import { useEffect, useRef } from 'react';
-import PolicySection from '../../components/common/PolicySection';
+// import PolicySection from '../common/PolicySection';
 
 
 
@@ -482,7 +482,7 @@ useEffect(() => {
           </div>
         </div>
       </section>
-      <PolicySection />
+      {/* <PolicySection /> */}
 
       <Footer />
     </div>

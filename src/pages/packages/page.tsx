@@ -5,7 +5,7 @@ import HeroSection from './components/HeroSection';
 import RoomTariff from './components/RoomTariff';
 import ThemePackages from './components/ThemePackages';
 import Facilities from './components/Facilities';
-import PolicySection from '../../components/common/PolicySection';
+// import PolicySection from '../common/PolicySection';
 
 const PackagesPage = () => {
   return (
@@ -16,7 +16,7 @@ const PackagesPage = () => {
         <RoomTariff />
         <ThemePackages />
         <Facilities />
-        <PolicySection />
+        {/* <PolicySection /> */}
         <Footer />
       </div>
     </Suspense>

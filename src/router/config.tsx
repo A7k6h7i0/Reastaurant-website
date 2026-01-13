@@ -9,6 +9,12 @@ const BlogPage = lazy(() => import('../pages/Blog/BlogPage'));
 const ExperiencesPage = lazy(() => import('../pages/experiences/page'));
 const ContactPage = lazy(() => import('../pages/contact/page'));
 const NotFound = lazy(() => import('../pages/NotFound'));
+const TermsPage = lazy(() => import('../pages/policies/TermsPage'));
+const RefundPolicyPage = lazy(() => import('../pages/policies/RefundPolicyPage'));
+const PrivacyPolicyPage = lazy(() => import('../pages/policies/PrivacyPolicyPage'));
+const PackagesPolicyPage = lazy(() => import('../pages/policies/PackagesPage'));
+const BookingEnginePage = lazy(() => import('../pages/policies/BookingEnginePage'));
+
 
 const routes: RouteObject[] = [
   {
@@ -40,6 +46,27 @@ const routes: RouteObject[] = [
     element: <BlogPage />,
   },
   {
+  path: '/terms-and-conditions',
+  element: <TermsPage />,
+},
+{
+  path: '/refund-policy',
+  element: <RefundPolicyPage />,
+},
+{
+  path: '/privacy-policy',
+  element: <PrivacyPolicyPage />,
+},
+{
+  path: '/packages-policy',
+  element: <PackagesPolicyPage />,
+},
+{
+  path: '/booking-engine',
+  element: <BookingEnginePage />,
+},
+
+{
     path: '*',
     element: <NotFound />,
   },

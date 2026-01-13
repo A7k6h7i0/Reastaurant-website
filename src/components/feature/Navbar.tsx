@@ -27,6 +27,7 @@ const Navbar = () => {
     { name: 'Blog',path:'/blog'},
     { name: 'Contact', path: '/contact' },
     
+    
   ];
 
   // Check if current page is home

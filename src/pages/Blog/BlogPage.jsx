@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import Navbar from "../../components/feature/Navbar";
 import Footer from "../../components/feature/Footer";
-import PolicySection from '../../components/common/PolicySection';
+// import PolicySection from '../../components/common/PolicySection';
 
 const blogs = [
   {
@@ -131,7 +131,7 @@ const BlogPage = () => {
           </div>
         </div>
       </section>
-      <PolicySection />
+      {/* <PolicySection /> */}
       <Footer />
     </div>
   );
