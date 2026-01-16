@@ -2,7 +2,7 @@ import { useState, useMemo } from "react";
 import RoomsGuestsDropdown from "./RoomsGuestsDropdown";
 import { CalendarDays } from "lucide-react";
 
-const PRICE_PER_NIGHT = 6900;
+const PRICE_PER_NIGHT = 6990;
 
 const BookingBar = () => {
   const [checkIn, setCheckIn] = useState("2026-01-13");

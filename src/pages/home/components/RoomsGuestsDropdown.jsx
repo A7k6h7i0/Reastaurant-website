@@ -46,9 +46,6 @@ const RoomsGuestsDropdown = ({
         className="cursor-pointer flex items-center justify-between"
       >
         <div>
-          <p className="text-xs uppercase tracking-wide text-gray-500">
-            Rooms
-          </p>
           <p className="text-xl font-bold text-gray-900 leading-tight">
             {rooms} Room{rooms > 1 ? "s" : ""}{" "}
           </p>
