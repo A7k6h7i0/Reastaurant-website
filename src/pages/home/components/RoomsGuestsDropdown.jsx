@@ -47,7 +47,7 @@ const RoomsGuestsDropdown = ({
       >
         <div>
           <p className="text-xs uppercase tracking-wide text-gray-500">
-            Rooms & Guests
+            Rooms
           </p>
           <p className="text-xl font-bold text-gray-900 leading-tight">
             {rooms} Room{rooms > 1 ? "s" : ""}{" "}
