@@ -13,7 +13,7 @@ const RoomsPreview = () => {
     {
       name: 'Deluxe Double Room - AC',
       image: '/images/RestaurantImage.png',
-      amenities: ['Air Conditioning', 'King Bed', 'Forest View', 'En-suite Bathroom'],
+      amenities: ['Air Conditioning', 'Queen Bed', 'Forest View', 'En-suite Bathroom'],
       price: '₹6,990',
     },
     {

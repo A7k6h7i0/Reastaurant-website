@@ -28,6 +28,10 @@ const RoomsPage = () => {
         'Out door & indoor games.',
         'A multi-cuisine open restaurant.',
         'Arrangements for meeting, training and seminars for 50 Pax',
+        'Free Wi-Fi',
+        'Room Service',
+        'Complimentary Toiletries',
+        'Kettle',
       ],
       occupancy: '2 Adults',
       size: '270 sq ft',
@@ -59,7 +63,7 @@ const RoomsPage = () => {
         'Free Wi-Fi',
         'Room Service',
         'Complimentary Toiletries',
-        'Tea/Coffee Maker',
+        'Kettle',
       ],
       occupancy: '2 Adults',
       size: '270 sq ft',
@@ -250,7 +254,7 @@ const RoomsPage = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
               <div className="w-14 h-14 flex items-center justify-center rounded-full bg-gold/20 mb-6">
                 <i className="ri-calendar-check-line text-gold text-2xl"></i>
@@ -263,16 +267,6 @@ const RoomsPage = () => {
               </p>
             </div>
 
-            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
-              <div className="w-14 h-14 flex items-center justify-center rounded-full bg-gold/20 mb-6">
-                <i className="ri-shield-check-line text-gold text-2xl"></i>
-              </div>
-              <h3 className="font-serif font-semibold text-xl text-white mb-3">Cancellation Policy</h3>
-              <p className="text-sand-light text-sm leading-relaxed">
-                Free cancellation up to 48 hours before check-in. 
-                50% refund for cancellations within 48 hours.
-              </p>
-            </div>
 
             <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
               <div className="w-14 h-14 flex items-center justify-center rounded-full bg-gold/20 mb-6">

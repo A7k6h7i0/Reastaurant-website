@@ -8,8 +8,6 @@ const BookingBar = () => {
   const [checkIn, setCheckIn] = useState("2026-01-13");
   const [checkOut, setCheckOut] = useState("2026-01-14");
   const [rooms, setRooms] = useState(1);
-  const [adults, setAdults] = useState(2);
-  const [children, setChildren] = useState(0);
 
   const nights = useMemo(() => {
     const diff =
@@ -40,14 +38,10 @@ const BookingBar = () => {
 
           {/* ROOMS */}
           <Field className="relative">
-            <Label>Rooms & Guests</Label>
+            <Label>Rooms</Label>
             <RoomsGuestsDropdown
               rooms={rooms}
               setRooms={setRooms}
-              adults={adults}
-              setAdults={setAdults}
-              children={children}
-              setChildren={setChildren}
             />
           </Field>
 

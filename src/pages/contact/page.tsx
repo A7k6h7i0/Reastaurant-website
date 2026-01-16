@@ -98,7 +98,7 @@ useEffect(() => {
               <h3 className="font-semibold text-forest-dark mb-2">Call Us</h3>
               <p className="text-sm text-charcoal/60 mb-3">Available 24/7 for your convenience</p>
               <p className="text-gold font-semibold">+91 9434280628</p>
-              <p className="text-gold font-semibold">&+91 74793 52391</p>
+              <p className="text-gold font-semibold">&+91 7479352391</p>
             </a>
 
             {/* WhatsApp */}
@@ -344,7 +344,7 @@ useEffect(() => {
               </p>
               <div className="inline-flex items-center gap-2 text-gold font-semibold">
                 <i className="ri-calendar-line"></i>
-                <span>Ferry Schedule Available</span>
+                <span>Air Service Available</span>
               </div>
             </div>
 

@@ -3,10 +3,6 @@ import { useState, useRef, useEffect } from "react";
 const RoomsGuestsDropdown = ({
   rooms,
   setRooms,
-  adults,
-  setAdults,
-  children,
-  setChildren,
 }) => {
   const [open, setOpen] = useState(false);
   const dropdownRef = useRef(null);
@@ -55,9 +51,6 @@ const RoomsGuestsDropdown = ({
           </p>
           <p className="text-xl font-bold text-gray-900 leading-tight">
             {rooms} Room{rooms > 1 ? "s" : ""}{" "}
-            <span className="font-normal text-gray-700">
-              {adults} Adult{adults > 1 ? "s" : ""}
-            </span>
           </p>
         </div>
 
@@ -78,12 +71,10 @@ const RoomsGuestsDropdown = ({
       {open && (
         <div className="absolute top-full left-0 mt-4 w-80 bg-white rounded-xl shadow-xl border p-5 z-50">
           <h4 className="text-sm font-semibold text-gray-800 mb-3">
-            Select Rooms & Guests
+            Select Rooms 
           </h4>
 
           <Counter label="Rooms" value={rooms} setValue={setRooms} min={1} />
-          <Counter label="Adults" value={adults} setValue={setAdults} min={1} />
-          <Counter label="Children" value={children} setValue={setChildren} />
 
           <button
             onClick={() => setOpen(false)}

@@ -57,17 +57,7 @@ const ThemePackages = () => {
                 </div>
               </div>
 
-              <div className="flex items-start space-x-4">
-                <div className="w-6 h-6 flex items-center justify-center rounded-full bg-gold/20 mt-1">
-                  <i className="ri-check-line text-gold text-sm"></i>
-                </div>
-                <div>
-                  <h4 className="font-sans font-semibold text-forest-dark mb-1">
-                    Free Activity Add-ons
-                  </h4>
-                  <p className="text-olive text-sm">Hiking, mangrove boat rides, beach exploration & nature walks</p>
-                </div>
-              </div>
+              
             </div>
 
             <a
