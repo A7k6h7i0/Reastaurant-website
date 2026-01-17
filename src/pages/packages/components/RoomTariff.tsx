@@ -154,7 +154,7 @@ const RoomTariff = () => {
               </div>
               <div className="flex-1">
                 <p className="text-olive text-sm leading-relaxed">
-                  <strong className="text-forest-dark">Important:</strong> All rates are per night and per Room,include applicable taxes. 
+                  <strong className="text-forest-dark">Important:</strong> All rates are per night and per Room.
                   Peak season bookings require a minimum stay of 2 nights. Prices are subject to change without prior notice. 
                   Please contact us for group bookings and special packages.
                 </p>
