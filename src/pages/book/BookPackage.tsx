@@ -2,6 +2,17 @@ import { useParams } from "react-router-dom";
 import { useEffect, useMemo, useState } from "react";
 import { packages } from "../../data/packages";
 
+/**
+ * ✅ Production-safe API URL
+ * Must be defined in Vercel env as:
+ * VITE_API_URL=https://<render-backend>.onrender.com
+ */
+const API_URL = import.meta.env.VITE_API_URL;
+
+if (!API_URL) {
+  console.error("❌ VITE_API_URL is missing. Booking will fail in production.");
+}
+
 const BookPackage = () => {
   const { id } = useParams<{ id: string }>();
 
@@ -31,7 +42,7 @@ const BookPackage = () => {
   }
 
   /* ===============================
-     ✅ ADD THIS FUNCTION HERE
+     📦 PRODUCTION-READY BOOKING
      =============================== */
   const handleBooking = async () => {
     if (!name || !email || !phone) {
@@ -39,12 +50,19 @@ const BookPackage = () => {
       return;
     }
 
+    if (!API_URL) {
+      alert("Booking service unavailable. Please try again later.");
+      return;
+    }
+
     setLoading(true);
 
     try {
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/book-tour`, {
+      const res = await fetch(`${API_URL}/api/book-tour`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify({
           name,
           email,
@@ -55,12 +73,13 @@ const BookPackage = () => {
       });
 
       if (!res.ok) {
-        throw new Error("Booking API failed");
+        const errorText = await res.text();
+        throw new Error(errorText || "Booking API failed");
       }
 
       setSubmitted(true);
     } catch (err) {
-      console.error(err);
+      console.error("❌ Booking failed:", err);
       alert("Booking failed. Please try again.");
     } finally {
       setLoading(false);
@@ -166,7 +185,6 @@ const BookPackage = () => {
               className="w-full border p-3 rounded bg-gray-100"
             />
 
-            {/* 🔁 BUTTON UPDATED */}
             <button
               onClick={handleBooking}
               disabled={loading}

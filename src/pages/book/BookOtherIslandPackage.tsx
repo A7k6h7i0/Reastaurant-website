@@ -2,6 +2,12 @@ import { useParams } from "react-router-dom";
 import { useEffect, useMemo, useState } from "react";
 import { otherIslandPackages } from "../../data/otherIslandPackages";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
+if (!API_URL) {
+  console.error("❌ VITE_API_URL is missing in production");
+}
+
 const BookOtherIslandPackage = () => {
   const { id } = useParams<{ id: string }>();
 
@@ -35,29 +41,36 @@ const BookOtherIslandPackage = () => {
       return;
     }
 
+    if (!API_URL) {
+      alert("Booking service unavailable. Please try later.");
+      return;
+    }
+
     setLoading(true);
 
     try {
-      const res = await fetch(
-        `${import.meta.env.VITE_API_URL}/api/book-tour`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            name,
-            email,
-            phone,
-            token,
-            packageId: selectedPackage.code,
-          }),
-        }
-      );
+      const res = await fetch(`${API_URL}/api/book-tour`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          phone,
+          token,
+          packageId: selectedPackage.code,
+        }),
+      });
 
-      if (!res.ok) throw new Error("Booking API failed");
+      if (!res.ok) {
+        const text = await res.text();
+        throw new Error(text || "Booking API failed");
+      }
 
       setSubmitted(true);
-    } catch (error) {
-      console.error(error);
+    } catch (err) {
+      console.error("❌ Booking error:", err);
       alert("Booking failed. Please try again.");
     } finally {
       setLoading(false);
@@ -66,14 +79,11 @@ const BookOtherIslandPackage = () => {
 
   return (
     <section className="max-w-6xl mx-auto px-6 py-12 space-y-10">
-      {/* PACKAGE DETAILS */}
       <div className="bg-white rounded-3xl shadow p-8 space-y-6">
         <h1 className="text-3xl font-bold">{selectedPackage.title}</h1>
         <p className="text-gray-600">{selectedPackage.days}</p>
-        {/* rest unchanged */}
       </div>
 
-      {/* BOOKING FORM */}
       <div className="bg-white rounded-3xl shadow p-8 space-y-4">
         <h2 className="text-2xl font-bold">Book This Tour</h2>
 
