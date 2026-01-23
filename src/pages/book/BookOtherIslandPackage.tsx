@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useMemo, useState } from "react";
 import { otherIslandPackages } from "../../data/otherIslandPackages";
 
+
 const BookOtherIslandPackage = () => {
   const { id } = useParams<{ id: string }>();
 
