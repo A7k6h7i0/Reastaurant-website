@@ -2,7 +2,10 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 const ThemePackages = () => {
-  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
 
   return (
     <section
@@ -25,18 +28,16 @@ const ThemePackages = () => {
             Baratang Island Package Details
           </h2>
           <p className="text-olive max-w-4xl mx-auto leading-relaxed">
-            All rates shown here are in INR and are on a per person basis.
-            The packages below are designed to offer a complete Baratang Island
-            experience with sightseeing, transfers and accommodation.
+            All rates shown here are in INR and for per person basis.
           </p>
         </motion.div>
 
-        {/* ================= RATES TABLE ================= */}
+        {/* ================= RATES ================= */}
         <div className="bg-white rounded-3xl shadow-xl overflow-hidden">
           <div className="bg-forest text-white px-8 py-6">
-            <h3 className="font-serif text-3xl">Rates</h3>
+            <h3 className="font-serif text-3xl">RATES</h3>
             <p className="text-sand-light text-sm mt-1">
-              All rates are per person basis
+              All rates shown here are in INR and for per person basis.
             </p>
           </div>
 
@@ -46,9 +47,13 @@ const ThemePackages = () => {
                 <tr>
                   <th className="p-4">Package</th>
                   <th className="p-4">Nights</th>
-                  <th className="p-4">Per Adult (Twin Share)</th>
-                  <th className="p-4">Extra Adult / Child (5–12 yrs with mattress)</th>
-                  <th className="p-4">Extra Child (5–12 yrs without mattress)</th>
+                  <th className="p-4">Per Adult on twin-share</th>
+                  <th className="p-4">
+                    Extra Adult / Child (5–12 yrs with mattress)
+                  </th>
+                  <th className="p-4">
+                    Extra Child (5–12 yrs without mattress)
+                  </th>
                 </tr>
               </thead>
               <tbody className="divide-y">
@@ -78,104 +83,124 @@ const ThemePackages = () => {
           </div>
         </div>
 
-        {/* ================= ROOM & PAX RULES ================= */}
+        {/* ================= ROOM TARIFF RULES ================= */}
         <div className="bg-white rounded-3xl shadow-xl p-10 space-y-6">
           <h3 className="font-serif text-3xl text-forest-dark">
             Room Tariff & Occupancy Rules
           </h3>
 
           <p className="text-olive">
-            Room Tariff is based on Double Room on CP (Breakfast included) +
-            Extra Person (Adult/Child – with or without mattress).
+            Room Tariff (Dbl room on CP (Breakfast included) + Extra Person
+            (Adult/Child – two options - with or without mattress).
           </p>
 
           <p className="text-olive">
-            Select number of rooms and pax in each room.
-            Maximum <strong>3 Adults / Child with mattress</strong> and
-            <strong> one Child (below 5 years) without mattress</strong>
-            can be accommodated.
+            Select No. of rooms and pax in each room. Maximum
+            <strong> 3 Adults / Child with mattress</strong> and
+            <strong> One Child (Below 5 years)</strong> without mattress can be accommodated.
           </p>
 
           <p className="text-olive font-semibold">
-            Max occupancy: 3 + 1 = 4 pax (2 extra adults not permitted)
+            Max – 3 + 1 = 4 pax (2 extra adults not permitted)
           </p>
         </div>
 
         {/* ================= BACKEND COMPONENTS ================= */}
         <div className="bg-white rounded-3xl shadow-xl p-10 space-y-6">
           <h3 className="font-serif text-3xl text-forest-dark">
-            Other Components (For Backend Configuration)
+            Other Components for Back End
           </h3>
 
           <ul className="list-decimal pl-6 space-y-3 text-olive">
             <li>
-              <strong>Car Charges (Port Blair Round Trip):</strong>
-              Up to 5 pax – one car, more than 5 pax up to 10 – two cars.
-              OR Route bus tickets – round trip per person rate.
+              <strong>Car (From Port Blair round trip):</strong> Charges for transfers –
+              upto 5 pax (one car), more than 5 pax upto 10 (2 car) so on.
+              OR Route Bus tickets – Round trip from Port Blair – per person rate.
             </li>
             <li>
-              <strong>Car Charges for Night Stay:</strong>
-              Per night charges (applicable only for car transfers).
+              <strong>CAR Charges for night stay:</strong> Per Night charges
+              (Applicable only for Car Transfers).
             </li>
             <li>
-              <strong>Car Charges for Sightseeing:</strong>
-              As per package, up to 5 pax – one car, more than 5 pax – two cars.
+              <strong>Car Charges for sightseeing:</strong> As per package.
+              Upto 5 pax (one car), more than 5 pax upto 10 (2 car) so on.
             </li>
             <li>
-              <strong>Boat Charges:</strong>
-              Option 1 – Per boat (up to 8 pax) OR Option 2 – Per person charges.
+              <strong>Boat Charges:</strong> Option 1 boat (upto 8 pax) OR
+              option 2 per person charges – For sightseeing.
               Both options should be available for recording.
             </li>
             <li>
-              <strong>Permit Charges:</strong> Per person.
+              <strong>Permit Charges:</strong> Per Person.
             </li>
           </ul>
 
           <p className="text-olive">
-            Similar fields should be maintained for other packages as well.
+            Similar fields should be there for other packages.
           </p>
         </div>
 
         {/* ================= PACKAGE INCLUDES ================= */}
         <div className="bg-white rounded-3xl shadow-xl p-10 space-y-4">
           <h3 className="font-serif text-3xl text-forest-dark">
-            Package Includes
+            I. Package Includes
           </h3>
 
-          <ul className="list-decimal pl-6 space-y-2 text-olive">
-            <li>All rates are per person basis.</li>
+          <ol className="list-decimal pl-6 space-y-2 text-olive">
+            <li>All Rates are per person basis</li>
             <li>
-              Accommodation on twin share, breakfast, sightseeing
-              (Limestone Caves, Mud Volcano, Baludera Beach, Parrot Island,
-              Merk Bay – optional), Port Blair – Baratang – Port Blair transfers,
-              all permit fees and all taxes.
+              Package includes accommodation on twin share, breakfast,
+              sightseeing (Limestone Caves, Mud Volcano, Baludera Beach &
+              Parrot Island, Merk Bay (optional) and
+              Port Blair - Baratang - Port Blair transfers),
+              all sightseeing as per itinerary, all permit fees and all taxes.
             </li>
-          </ul>
+          </ol>
 
           <p className="text-olive">
             <strong>Note:</strong> Maximum one extra person per room allowed.
-            If extra bed required for child below 12 years, extra person charges
-            are applicable. Child 5–12 years no extra bed provided.
-            Child below 5 years is complimentary.
+            If extra bed required for child below 12yrs, extra person charges
+            are applicable. Child 5–12 yrs no extra bed provided.
+            Child below 5yrs is complimentary.
+          </p>
+        </div>
+
+        {/* ================= TRANSPORT ================= */}
+        <div className="bg-white rounded-3xl shadow-xl p-10">
+          <h3 className="font-serif text-3xl text-forest-dark mb-4">
+            II. Transport
+          </h3>
+          <p className="text-olive">
+            Transport by AC vehicle.
           </p>
         </div>
 
         {/* ================= EXCLUDES ================= */}
         <div className="bg-white rounded-3xl shadow-xl p-10">
           <h3 className="font-serif text-3xl text-forest-dark mb-4">
-            Package Excludes
+            III. Package Excludes
           </h3>
           <p className="text-olive">
-            Any optional tours, personal expenses and stay before / after
-            check-in check-out time.
+            Any optional tours, personal expenses.
+            Stay before / after check-in check out time.
           </p>
         </div>
 
+        {/* ================= WEATHER ================= */}
+        <div className="bg-gradient-to-r from-forest to-forest-light text-white rounded-3xl p-10">
+          <h3 className="font-serif text-3xl mb-4">
+            IV. We would also like to mention that:
+          </h3>
+          <ul className="list-disc pl-6 space-y-2">
+            <li>Tours are subject to weather conditions.</li>
+            <li>Best period is from Oct-May.</li>
+          </ul>
+        </div>
 
-        {/* ================= ITINERARIES ================= */}
+        {/* ================= ITINERARY ================= */}
         <div className="space-y-16">
           <h3 className="font-serif text-4xl text-center text-forest-dark">
-            Baratang Package Tour Itinerary
+            V. Baratang Package Tour Itinerary
           </h3>
 
           {/* DDR12 */}
@@ -184,14 +209,13 @@ const ThemePackages = () => {
               Baratang (1N) – CODE: DDR12
             </h4>
             <p className="text-olive">
-              <strong>Day 1:</strong> Pick up from Port Blair and transfer to
-              Baratang Island by private car. Resort check-in. After lunch visit
-              Mud Volcano and Baludera Beach. Before sunset trip to Parrot Island.
-              Overnight stay at Baratang.
+              <strong>Day 1:</strong> Pick up from Port Blair and Transfer to Baratang Island by Pvt. Car.
+              Resort Check-in. After Lunch head to Baludera Beach via Mud Volcano site.
+              Just before sunset trip to Parrot Island. Overnight in Baratang.
             </p>
             <p className="text-olive mt-2">
-              <strong>Day 2:</strong> Check-out. Visit Limestone Caves at
-              Rafter’s Creek. Return to Port Blair. Drop at Port Blair.
+              <strong>Day 2:</strong> Check-out. Visit limestone caves at Rafter’s Creek.
+              Return to Port Blair. Drop at Port Blair.
             </p>
           </div>
 
@@ -202,33 +226,33 @@ const ThemePackages = () => {
             </h4>
             <p className="text-olive">
               <strong>Day 1:</strong> Port Blair to Baratang. Resort check-in.
-              Mud Volcano and Baludera Beach. Overnight at Baratang.
+              Mud Volcano & Baludera Beach. Overnight at Baratang.
             </p>
             <p className="text-olive mt-2">
-              <strong>Day 2:</strong> Limestone Caves visit. Evening Parrot Island.
+              <strong>Day 2:</strong> Limestone caves. Evening Parrot Island.
               Overnight at Baratang.
             </p>
             <p className="text-olive mt-2">
-              <strong>Day 3:</strong> Check-out and return to Port Blair.
+              <strong>Day 3:</strong> Check-out. Return to Port Blair.
             </p>
           </div>
 
           {/* DDR34 */}
           <div className="bg-white rounded-3xl shadow-xl p-8">
             <h4 className="font-serif text-2xl text-forest-dark mb-4">
-              Baratang (3N – Min 6 Pax) – CODE: DDR34
+              Baratang (3N – Min 6 pax) – CODE: DDR34
             </h4>
             <p className="text-olive">
-              Includes Mud Volcano, Baludera Beach, Limestone Caves, Parrot Island
-              and full day trip to Merk Bay Beach via mangrove creeks.
+              Includes Mud Volcano, Baludera Beach, Limestone Caves,
+              Parrot Island and full day trip to Merk Bay beach.
             </p>
             <p className="text-olive mt-2">
-              Merk Bay is in North Passage Island offering coral-rich shallow
-              waters suitable for snorkeling, swimming and sun basking.
-              Dolphins are often spotted.
+              Merk Bay beach is in North Passage Island offering unpolluted
+              environment, coral rich shallow waters ideal for snorkeling,
+              swimming and sun basking. Dolphins are often spotted.
             </p>
             <p className="text-olive mt-2">
-              Packed lunch served at the beach. Return before sunset.
+              Packed lunch will be served. Return before sunset.
             </p>
           </div>
         </div>
@@ -236,32 +260,37 @@ const ThemePackages = () => {
         {/* ================= BOOKINGS ================= */}
         <div className="bg-white rounded-3xl shadow-xl p-10 space-y-4">
           <h3 className="font-serif text-3xl text-forest-dark">
-            Bookings & Cancellations
+            VII. Bookings & Cancellations
           </h3>
 
           <ol className="list-decimal pl-6 space-y-2 text-olive">
             <li>All bookings must be made well in advance.</li>
-            <li>100% deposit required within 3 to 5 working days.</li>
-            <li>Payments via bank transfer or demand draft.</li>
-            <li>Receipt issued after payment confirmation.</li>
+            <li>100% Deposit required within 3 to 5 working days.</li>
+            <li>
+              Payments via Demand Draft or Bank Transfer.
+              Bank service charges not included.
+            </li>
+            <li>Receipt will be sent after payment confirmation.</li>
             <li>
               Cancellation charges:
               <ul className="list-disc pl-6 mt-2">
-                <li>Before 30 days – 75% of advance amount</li>
-                <li>7–29 days – 50% of advance amount</li>
-                <li>Up to 6 days – No refund</li>
+                <li>Before 30 days – 75% of advance amount.</li>
+                <li>Between 7 & 29 days – 50% of advance amount.</li>
+                <li>Upto 6 days before check-in – NO REFUND.</li>
               </ul>
             </li>
           </ol>
 
           <p className="text-olive">
-            All refunds will be processed within 4 weeks from effective date.
+            All repayments for cancellations will be made within 4 weeks
+            from the effective date.
           </p>
 
           <p className="text-olive">
-            Tour once commenced will strictly go as per finalized itinerary.
-            In case of circumstances beyond control, we reserve the right
-            to change itinerary for guest safety.
+            Tour once commenced will strictly go as per the itinerary finalized.
+            In case of events and circumstances beyond our control,
+            we reserve the right to change the itinerary for safety
+            and well-being of our guests.
           </p>
         </div>
 
