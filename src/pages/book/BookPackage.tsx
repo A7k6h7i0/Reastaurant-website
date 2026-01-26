@@ -94,7 +94,7 @@ const BookPackage = () => {
         <h1 className="text-3xl font-bold">{selectedPackage.title}</h1>
         <p className="text-gray-600">{selectedPackage.nights}</p>
 
-        <div>
+        {/* <div>
           <h3 className="font-semibold text-lg mb-2">Room Tariff</h3>
           <ul className="list-disc pl-6 space-y-1">
             {selectedPackage.roomTariff.map((item) => (
@@ -110,6 +110,16 @@ const BookPackage = () => {
               <li key={item}>{item}</li>
             ))}
           </ul>
+        </div> */}
+        <div>
+          <h3 className="font-semibold text-lg mb-2">Tour Itinerary</h3>
+          <div className="space-y-3">
+            {selectedPackage.itinerary.map((day) => (
+              <p key={day.day}>
+                <strong>{day.day}:</strong> {day.description}
+              </p>
+            ))}
+          </div>
         </div>
 
         <div>
@@ -139,21 +149,12 @@ const BookPackage = () => {
           </ul>
         </div>
 
-        <div>
-          <h3 className="font-semibold text-lg mb-2">Tour Itinerary</h3>
-          <div className="space-y-3">
-            {selectedPackage.itinerary.map((day) => (
-              <p key={day.day}>
-                <strong>{day.day}:</strong> {day.description}
-              </p>
-            ))}
-          </div>
-        </div>
+        
       </div>
 
       {/* ================= BOOKING FORM ================= */}
       <div className="bg-white rounded-3xl shadow p-8 space-y-4">
-        <h2 className="text-2xl font-bold">Book This Tour</h2>
+        <h2 className="text-2xl font-bold">Send Booking Request</h2>
 
         {submitted ? (
           <p className="text-green-600 font-semibold">
@@ -190,7 +191,7 @@ const BookPackage = () => {
               disabled={loading}
               className="bg-forest text-white px-6 py-3 rounded-xl disabled:opacity-60"
             >
-              {loading ? "Booking..." : "Book Tour"}
+              {loading ? "Sending..." : "Send Booking Request"}
             </button>
           </>
         )}

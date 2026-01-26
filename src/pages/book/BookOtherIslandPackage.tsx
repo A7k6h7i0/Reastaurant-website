@@ -2,7 +2,6 @@ import { useParams } from "react-router-dom";
 import { useEffect, useMemo, useState } from "react";
 import { otherIslandPackages } from "../../data/otherIslandPackages";
 
-
 /**
  * ✅ Production-safe API URL
  */
@@ -35,9 +34,7 @@ const BookOtherIslandPackage = () => {
   if (!selectedPackage) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <p className="text-lg font-semibold text-red-600">
-          Package not found
-        </p>
+        <p className="text-lg font-semibold text-red-600">Package not found</p>
       </div>
     );
   }
@@ -84,7 +81,6 @@ const BookOtherIslandPackage = () => {
 
   return (
     <section className="max-w-6xl mx-auto px-6 py-12 space-y-10">
-
       {/* PACKAGE DETAILS */}
       <div className="bg-white rounded-3xl shadow p-8 space-y-6">
         <h1 className="text-3xl font-bold">{selectedPackage.title}</h1>
@@ -93,11 +89,20 @@ const BookOtherIslandPackage = () => {
         <div>
           <h3 className="font-semibold">Hotels Used</h3>
           <ul className="list-disc pl-6">
-            <li><b>Baratang:</b> {selectedPackage.hotels.baratang.join(", ")}</li>
+            <li>
+              <b>Baratang:</b> {selectedPackage.hotels.baratang.join(", ")}
+            </li>
+
             {selectedPackage.hotels.havelock.length > 0 && (
-              <li><b>Havelock:</b> {selectedPackage.hotels.havelock.join(", ")}</li>
+              <li>
+                <b>Havelock:</b> {selectedPackage.hotels.havelock.join(", ")}{" "}
+                
+              </li>
             )}
-            <li><b>Port Blair:</b> {selectedPackage.hotels.portBlair.join(", ")}</li>
+
+            <li>
+              <b>Port Blair:</b> {selectedPackage.hotels.portBlair.join(", ")} 
+            </li>
           </ul>
         </div>
 
@@ -109,11 +114,38 @@ const BookOtherIslandPackage = () => {
             </p>
           ))}
         </div>
+
+        <div>
+          <h3 className="font-semibold">Package Includes</h3>
+          <ul className="list-disc pl-6">
+            {selectedPackage.includes.map((x) => (
+              <li key={x}>{x}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <h3 className="font-semibold">Package Excludes</h3>
+          <ul className="list-disc pl-6">
+            {selectedPackage.excludes.map((x) => (
+              <li key={x}>{x}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <h3 className="font-semibold">Important Notes</h3>
+          <ul className="list-disc pl-6">
+            {selectedPackage.notes.map((x) => (
+              <li key={x}>{x}</li>
+            ))}
+          </ul>
+        </div>
       </div>
 
       {/* BOOKING FORM */}
       <div className="bg-white rounded-3xl shadow p-8 space-y-4">
-        <h2 className="text-2xl font-bold">Book This Tour</h2>
+        <h2 className="text-2xl font-bold">Send Booking Request</h2>
 
         {submitted ? (
           <p className="text-green-600 font-semibold">
@@ -121,17 +153,33 @@ const BookOtherIslandPackage = () => {
           </p>
         ) : (
           <>
-            <input className="w-full border p-3 rounded" placeholder="Full Name" onChange={e => setName(e.target.value)} />
-            <input className="w-full border p-3 rounded" placeholder="Mobile Number" onChange={e => setPhone(e.target.value)} />
-            <input className="w-full border p-3 rounded" placeholder="Email Address" onChange={e => setEmail(e.target.value)} />
-            <input className="w-full border p-3 rounded bg-gray-100" value={token} readOnly />
+            <input
+              className="w-full border p-3 rounded"
+              placeholder="Full Name"
+              onChange={(e) => setName(e.target.value)}
+            />
+            <input
+              className="w-full border p-3 rounded"
+              placeholder="Mobile Number"
+              onChange={(e) => setPhone(e.target.value)}
+            />
+            <input
+              className="w-full border p-3 rounded"
+              placeholder="Email Address"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <input
+              className="w-full border p-3 rounded bg-gray-100"
+              value={token}
+              readOnly
+            />
 
             <button
               onClick={handleBooking}
               disabled={loading}
               className="bg-forest text-white px-6 py-3 rounded-xl disabled:opacity-60"
             >
-              {loading ? "Booking..." : "Book Tour"}
+              {loading ? "Sending..." : "Send Booking Request"}
             </button>
           </>
         )}
