@@ -42,7 +42,7 @@ const WhyDewDale = () => {
               animate={{ opacity: inView ? 1 : 0, x: inView ? 0 : -50 }}
               transition={{ duration: 0.8 }}
             >
-              <div className="text-gold/20 font-serif text-9xl font-bold mb-4">01</div>
+              <div className="text-gold/20 text-9xl font-bold mb-4">01</div>
               <h2 className="font-serif font-bold text-4xl md:text-5xl text-white mb-6">
                 Why Choose Dew Dale Resorts
               </h2>

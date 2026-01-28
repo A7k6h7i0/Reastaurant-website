@@ -86,13 +86,14 @@ const HeroSection = () => {
               >
                 Book Your Stay
               </motion.a>
-              <motion.button
+              <motion.a
+               href='/packages'
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="px-10 py-4 rounded-full bg-transparent border-2 border-white text-white font-sans font-semibold text-base tracking-wider uppercase transition-all duration-300 hover:bg-white hover:text-forest whitespace-nowrap cursor-pointer"
               >
                 Explore Packages
-              </motion.button>
+              </motion.a>
             </div>
           </motion.div>
         </div>
