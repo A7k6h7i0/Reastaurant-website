@@ -221,12 +221,19 @@ const BookOtherIslandPackage = () => {
             />
 
             {/* Check-in Date */}
-            <input
-              type="date"
-              className="w-full border p-3 rounded"
-              value={checkInDate}
-              onChange={(e) => setCheckInDate(e.target.value)}
-            />
+            {/* Check-in Date */}
+<div className="space-y-1">
+  <label className="text-sm font-medium text-gray-600">
+    Arrival Date
+  </label>
+  <input
+    type="date"
+    className="w-full border p-3 rounded"
+    value={checkInDate}
+    onChange={(e) => setCheckInDate(e.target.value)}
+  />
+</div>
+
 
             {/* Rooms */}
             <select
