@@ -1,7 +1,7 @@
 
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import BookingBar from './BookingBar'
+// import BookingBar from './BookingBar'
 
 const HeroSection = () => {
   const [ref, inView] = useInView({
@@ -31,9 +31,9 @@ const HeroSection = () => {
 
       {/* Content Overlay */}
       <div
-  ref={ref}
-  className="relative z-10 h-full flex items-center justify-center md:justify-center"
->
+      ref={ref}
+      className="relative z-10 h-full flex items-center justify-center md:justify-center"
+    >
 
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12 text-center">
           <motion.div
@@ -43,7 +43,7 @@ const HeroSection = () => {
           className="flex flex-col items-center space-y-10"
 >
 
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: inView ? 1 : 0, scale: inView ? 1 : 0.9 }}
               transition={{ duration: 0.8, delay: 0.5 }}
@@ -52,7 +52,19 @@ const HeroSection = () => {
               <span className="inline-block px-6 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-sand-light text-sm tracking-widest uppercase font-sans">
                 Pioneer Eco-Resort in Baratang Island
               </span>
+            </motion.div> */}
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: inView ? 1 : 0, scale: inView ? 1 : 0.9 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="mb-6 mt-20 sm:mt-0"
+            >
+              <span className="inline-block px-6 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-sand-light text-sm tracking-widest uppercase font-sans">
+                Pioneer Eco-Resort in Baratang Island
+              </span>
             </motion.div>
+
 
             <h3 className="font-serif  text-5xl md:text-7xl lg:text-8xl text-white mb-8 leading-tight">
              Welcome To Dew Dale Resorts
