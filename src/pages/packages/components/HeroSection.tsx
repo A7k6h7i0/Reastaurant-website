@@ -33,18 +33,25 @@ const HeroSection = () => {
             Experience modern comfort in an eco-friendly setting near exotic beaches.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a 
-            href={"https://live.ipms247.com/booking/book-rooms-dewdaleresorts"}
-            className="px-10 py-4 rounded-full bg-gold text-white font-sans font-semibold text-base tracking-wider uppercase transition-all duration-300 hover:bg-gold-light shadow-lg whitespace-nowrap cursor-pointer">
-              Book Now
-            </a>
-            <a
-              href="tel:+919434280628"
-              className="px-10 py-4 rounded-full border-2 border-white text-white font-sans font-semibold text-base tracking-wider uppercase transition-all duration-300 hover:bg-white hover:text-forest shadow-lg whitespace-nowrap cursor-pointer"
+          <div className="inner-block mt-6 flex flex-col sm:flex-row items-center justify-center gap-6">
+            <motion.a
+              href={"https://live.ipms247.com/booking/book-rooms-dewdaleresorts"}
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-10 py-4 rounded-full bg-forest text-white font-sans font-semibold text-base tracking-wider uppercase transition-all duration-300 hover:bg-forest-light shadow-xl whitespace-nowrap cursor-pointer"
             >
-              Call to Book
-            </a>
+              Book Your Stay
+            </motion.a>
+            <motion.a
+              href="/packages#popular-packages"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-10 py-4 rounded-full bg-transparent border-2 border-white text-white font-sans font-semibold text-base tracking-wider uppercase transition-all duration-300 hover:bg-white hover:text-forest whitespace-nowrap cursor-pointer"
+            >
+              Explore Packages
+            </motion.a>
           </div>
         </motion.div>
       </div>

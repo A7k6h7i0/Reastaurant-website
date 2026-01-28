@@ -92,6 +92,28 @@ const BlogPage = () => {
               first eco-luxury resort.
             </p>
           </motion.div>
+
+          <div className="inner-block mt-6 flex flex-col sm:flex-row items-center justify-center gap-6">
+            <motion.a
+              href={"https://live.ipms247.com/booking/book-rooms-dewdaleresorts"}
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-10 py-4 rounded-full bg-forest text-white font-sans font-semibold text-base tracking-wider uppercase transition-all duration-300 hover:bg-forest-light shadow-xl whitespace-nowrap cursor-pointer"
+            >
+              Book Your Stay
+            </motion.a>
+            <motion.a
+              href="/packages"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-10 py-4 rounded-full bg-transparent border-2 border-white text-white font-sans font-semibold text-base tracking-wider uppercase transition-all duration-300 hover:bg-white hover:text-forest whitespace-nowrap cursor-pointer"
+            >
+              Explore Packages
+            </motion.a>
+          </div>
+
         </div>
       </section>
 

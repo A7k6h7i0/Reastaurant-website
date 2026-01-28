@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Navbar from '../../components/feature/Navbar';
 import Footer from '../../components/feature/Footer';
 // import PolicySection from '../common/PolicySection';
+import { motion } from 'framer-motion'; 
 
 export default function ExperiencesPage() {
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -99,7 +100,7 @@ export default function ExperiencesPage() {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[100vh] min-h-[100px] flex items-center justify-center overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: "url('/images/Billede 225.jpg')" }}
@@ -114,14 +115,27 @@ export default function ExperiencesPage() {
           <p className="text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
             Discover the magic of Baratang Island through curated adventures and authentic natural encounters
           </p>
-           <a
+                     <div className="inner-block mt-6 flex flex-col sm:flex-row items-center justify-center gap-6">
+            <motion.a
               href={"https://live.ipms247.com/booking/book-rooms-dewdaleresorts"}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block mt-6 px-6 py-3 rounded-full bg-forest text-white font-sans font-medium text-sm tracking-wider uppercase transition-all duration-300 hover:bg-forest-light whitespace-nowrap cursor-pointer"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-10 py-4 rounded-full bg-forest text-white font-sans font-semibold text-base tracking-wider uppercase transition-all duration-300 hover:bg-forest-light shadow-xl whitespace-nowrap cursor-pointer"
             >
-              Book Now
-            </a>
+              Book Your Stay
+            </motion.a>
+            <motion.a
+              href="/packages"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-10 py-4 rounded-full bg-transparent border-2 border-white text-white font-sans font-semibold text-base tracking-wider uppercase transition-all duration-300 hover:bg-white hover:text-forest whitespace-nowrap cursor-pointer"
+            >
+              Explore Packages
+            </motion.a>
+          </div>
+
         </div>
       </section>
 

@@ -3,7 +3,7 @@ import { packages } from "../../../data/packages";
 
 const PackageGrid = () => {
   return (
-    <section className="py-24 bg-sand-light">
+    <section id="popular-packages" className="py-24 bg-sand-light">
       <div className="max-w-[1400px] mx-auto px-6">
         <h2 className="text-4xl font-serif text-center mb-12">
           Popular Tour Packages

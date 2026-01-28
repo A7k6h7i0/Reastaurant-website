@@ -33,7 +33,12 @@ const AboutPage = () => {
       <Navbar />
 
       {/* Hero Section */}
-      <section ref={heroRef} className="relative h-[70vh] min-h-[500px] flex items-center overflow-hidden mt-20">
+      <section
+  ref={heroRef}
+  className="relative min-h-[95vh] lg:min-h-[100vh] flex items-start pt-32 pb-32 overflow-hidden mt-20"
+>
+
+
         <div className="absolute inset-0">
           <img
             src="/images/AboutHeroImage.png"
@@ -60,6 +65,28 @@ const AboutPage = () => {
               Where pristine nature meets responsible hospitality, creating unforgettable experiences while preserving the untouched beauty of Andaman's hidden paradise.
             </p>
           </motion.div>
+
+
+          <div className="inner-block mt-6 flex flex-col sm:flex-row items-center justify-center gap-6">
+            <motion.a
+              href={"https://live.ipms247.com/booking/book-rooms-dewdaleresorts"}
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-10 py-4 rounded-full bg-forest text-white font-sans font-semibold text-base tracking-wider uppercase transition-all duration-300 hover:bg-forest-light shadow-xl whitespace-nowrap cursor-pointer"
+            >
+              Book Your Stay
+            </motion.a>
+            <motion.a
+              href="/packages"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-10 py-4 rounded-full bg-transparent border-2 border-white text-white font-sans font-semibold text-base tracking-wider uppercase transition-all duration-300 hover:bg-white hover:text-forest whitespace-nowrap cursor-pointer"
+            >
+              Explore Packages
+            </motion.a>
+          </div>
 
           {/* Stats */}
           <motion.div
@@ -181,8 +208,14 @@ const AboutPage = () => {
 
       {/* Location Highlight */}
       <section ref={locationRef} className="py-24 bg-white">
+
+        
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+
+          
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+            
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: locationInView ? 1 : 0, x: locationInView ? 0 : -50 }}
